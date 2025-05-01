@@ -99,6 +99,7 @@ body {
 
 .sideNavHeaderContent { /* all items in header */
     display: none;
+    height: auto;
     justify-content: space-between;
     align-items: center;
     max-width: 700px;
@@ -110,7 +111,6 @@ body {
     z-index: 1;
     display: flex;
     column-gap: 20px;
-    align-items: center;
     color: white;
 }
 
@@ -119,9 +119,9 @@ body {
     border: none;
 }
 
-#mobileLogo {
+#mobileLogo img{
     position: absolute;
-    height: 20px;
+    width: 180px;
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
