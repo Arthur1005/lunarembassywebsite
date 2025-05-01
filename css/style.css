@@ -103,17 +103,18 @@ body {
     justify-content: space-between;
     align-items: center;
     max-width: 700px;
-    margin: 10px auto;
+    margin: 36px auto auto 10px;
     padding: 0 20px;
 }
 
 .mobileNavIcon { /* the icons */
     z-index: 1;
     display: flex;
-    column-gap: 20px;
+    column-gap: 16px;
     color: white;
 }
 
+/* icon button styling */
 .mobileNavIcon button {
     background-color: transparent; 
     border: none;
@@ -121,10 +122,10 @@ body {
 
 #mobileLogo img{
     position: absolute;
-    width: 180px;
+    width: 170px;
     top: 20px;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-54%);
 }
 
 #mobileLogo {
@@ -252,6 +253,7 @@ input:focus {
 
     .sideNavHeaderContent {
         display: flex;
+        flex-direction: row;
     }
 
     .mobileSearchSection {
