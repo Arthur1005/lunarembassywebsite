@@ -10,15 +10,6 @@
     src: url('../assets/fonts/Akira\ Expanded\ Demo.otf');
 }
 
-ul {
-    list-style: none;
-}
-
-a {
-    text-decoration: none;
-    color: white;
-}
-
 body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     background-image: url('../assets/img/backGroundImg.jpg');
@@ -28,228 +19,231 @@ body {
     min-width: 300px;
 }
 
-
-/* laptop nav */
-
-.topNavHeaderContent {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 1300px;
-    margin: 30px auto;
-    padding: 0 30px;
+ul {
+    list-style: none;
 }
 
-#laptopLogo {
-    width: 280px;
-}
-
-.navList {
-    display: flex;
-    column-gap: 60px;
-}
-
-.navItem:first-child {
-    margin-left: 60px;
-}
-
-.navLink {
-    font-family: 'Akira Expanded', sans-serif;
-    font-size: 20px; 
-}
-
-.navLink:hover,
-.navLink:focus {
-    color: #FF8228;
-    transition: 0.5s; 
-}
-
-
-/* mobile nav */
-
-.sideNav {
-    width: 70%;
-    background-color: white;
-    display: none;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    overflow-x: hidden;
-    padding-top: 20px;
-}
-
-.sideNav {
-    transform: translateX(-100%); /* Start hidden to the left */
-    transition: transform 0.8s ease; /* Smooth sliding effect */
-}
-
-.sideNav.active {
-    transform: translateX(0);
-}
-
-.sideNav a {
-    font-family: 'Akira Expanded', sans-serif;
+a {
     text-decoration: none;
-    font-size: 20px;
-    color: rgb(0, 0, 0);
-    display: block;
-    padding: 20px 40px;
-}
-
-.sideNav .close {
-    font-size: 16px;
-    margin-bottom: 60px;
-    text-decoration: underline;
-    text-decoration-thickness: 4px;
-    text-underline-offset: 4px;
-}
-
-.sideNavHeaderContent { /* all items in header */
-    display: none;
-    height: auto;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 700px;
-    margin: 36px auto auto 10px;
-    padding: 0 20px;
-}
-
-.mobileNavIcon { /* the icons */
-    z-index: 1;
-    display: flex;
-    column-gap: 16px;
     color: white;
 }
 
-/* icon button styling */
-.mobileNavIcon button {
-    background-color: transparent; 
-    border: none;
-}
+/* Nav bar*/
+    /* laptop nav */
+    .topNavHeaderContent { /* the whole nav */
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        max-width: 1300px;
+        margin: 30px auto;
+        padding: 0 30px;
+    }
 
-#mobileLogoPng{
-    position: absolute;
-    width: 170px;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-54%);
-}
+    #laptopLogo {
+        width: 280px;
+    }
 
-#mobileLogoPng {
-    transition: filter 1.0s ease;
-}
+    .navList { /* laptop nav buttons*/
+        display: flex;
+        column-gap: 60px;
+    }
 
-#mobileLogoPng.invert {
-    filter: invert(1);
-}
+    .navItem:first-child { /* space between product and logo*/
+        margin-left: 60px;
+    }
 
-.icon {
-    height: 25px;
-    transition: filter 1.0s ease;
-}
+    .navLink {
+        font-family: 'Akira Expanded', sans-serif;
+        font-size: 20px; 
+    }
 
-.icon.invert {
-    filter: invert(1);
-}
-
-
-.mobileNavHamburger {
-    align-self: center;
-}
-
-.hamburger img {
-    width: 28px;
-}
-
-.hamburger {
-    all: unset;
-    display: none;
-    transition: filter 1.0s ease;
-}
-
-.hamburger.invert {
-    filter: invert(1);
-}
-
-.hamburger.black {
-    color: black;
-}
-
-.hamburger.white {
-    color: white;
-}
+    .navLink:hover,
+    .navLink:focus { /* orange hover effect */
+        color: #FF8228;
+        transition: 0.5s; 
+    }
 
 
+    /* mobile nav */
+    .sideNavHeaderContent { /* all items in header */
+        display: none;
+        height: auto;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 994px;
+        margin: 36px auto auto 10px;
+        padding: 0 20px;
+    }
 
-.mobileSearchSectionBG {
-    transform: translateY(-100%);
-    transition: transform 0.8s ease; 
-    z-index: -1;
-    display: none;
-    position: absolute;
-    top: 0;
-    background-color: white;
-    height: 160px;
-    max-width: 800px;
-    width: 100%;
-    margin: 0px auto;
-    padding: 0px 20px;
-}
+    .mobileNavHamburger {
+        align-self: center;
+    }
 
-.mobileSearchSectionBG.active {
-    transform: translateY(0);
-}
+    .hamburger img {
+        width: 28px;
+    }
 
-.mobileSearchSection {
-    font-family: 'Akira Expanded';
-    display: none;
-    background-color: black;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 700px;
-    height: 33.5px;
-    width: 100%;
-    margin: 100px auto;
-    border-radius: 20px;
-    height: 50;
-}
+    .hamburger {
+        all: unset;
+        display: none;
+        transition: filter 1.0s ease;
+    }
 
-#mobileSearchInput {
-    border-style: solid;
-    border-radius: 20px;
-    border-color: black;
-    display: flex;
-    padding: 5px;
-    margin: 2px;
-    margin-right: 20px;
-    width: 100%;
-    height: 50;
-    justify-content: left;
+    .hamburger.black {
+        color: black;
+    }
 
-    font-family: 'Akira Expanded';
-    text-transform: uppercase;
-    text-align: center;
-    caret-color: black;
-}
+    .hamburger.white {
+        color: white;
+    }
 
-input:focus {
-    outline: none;
-    box-shadow: none;
-}
+    .hamburger.invert {
+        filter: invert(1);
+    }
+
+    #mobileLogoPng{
+        position: absolute;
+        width: 170px;
+        top: 20px;
+        left: 50%;
+        transform: translateX(-54%);
+    }
+
+    #mobileLogoPng {
+        transition: filter 1.0s ease;
+    }
+
+    #mobileLogoPng.invert {
+        filter: invert(1);
+    }
+
+    .mobileNavIcon { /* the icons container */
+        z-index: 1;
+        display: flex;
+        column-gap: 16px;
+        color: white;
+    }
+
+    .mobileNavIcon button {
+        background-color: transparent; 
+        border: none;
+    }
+
+    .icon {
+        height: 25px;
+        transition: filter 1.0s ease;
+    }
+
+    .icon.invert {
+        filter: invert(1);
+    }
+
+    .mobileSearchSectionBG { /* the background container*/
+        transform: translateY(-100%);
+        transition: transform 0.8s ease; 
+        z-index: -1;
+        display: none;
+        position: absolute;
+        top: 0;
+        background-color: white;
+        height: 160px;
+        width: 100%;
+        margin: 0px auto;
+        padding: 0px 20px;
+    }
+
+    .mobileSearchSectionBG.active {
+        transform: translateY(0);
+    }
+
+    .mobileSearchSection { /* the content */
+        font-family: 'Akira Expanded';
+        display: none;
+        background-color: black;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 700px;
+        height: 33.5px;
+        width: 100%;
+        margin: 100px auto;
+        border-radius: 20px;
+        height: 50;
+    }
+
+    #mobileSearchInput { /* search bar */
+        border-style: solid;
+        border-radius: 20px;
+        border-color: black;
+        display: flex;
+        padding: 5px;
+        margin: 2px;
+        margin-right: 20px;
+        width: 100%;
+        height: 50;
+        justify-content: left;
+
+        font-family: 'Akira Expanded';
+        text-transform: uppercase;
+        text-align: center;
+        caret-color: black;
+    }
+
+    input:focus {
+        outline: none;
+        box-shadow: none;
+    }
 
 
-#mobileSearchBtn {
-    color: white;
-    font-weight: bold;
-    font-size: 1em;
-    cursor: pointer;
-    justify-content: right;
-    margin-right: 20px;
-}
+    #mobileSearchBtn { /* search button*/
+        color: white;
+        font-weight: bold;
+        font-size: 1em;
+        cursor: pointer;
+        justify-content: right;
+        margin-right: 20px;
+    }
 
 
-@media (max-width:800px){
+
+
+    .sideNav {
+        width: 275px;
+        background-color: white;
+        display: none;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow-x: hidden;
+        padding-top: 20px;
+
+        transform: translateX(-100%); /* hidden at left */
+        transition: transform 0.8s ease; /* sliding in */
+    }
+
+    .sideNav.active {
+        transform: translateX(0);
+    }
+
+    .sideNav a {
+        font-family: 'Akira Expanded', sans-serif;
+        text-decoration: none;
+        font-size: 20px;
+        color: rgb(0, 0, 0);
+        display: block;
+        padding: 20px 40px;
+    }
+
+    .sideNav .close {
+        font-size: 16px;
+        margin-bottom: 60px;
+        text-decoration: underline;
+        text-decoration-thickness: 4px;
+        text-underline-offset: 4px;
+    }
+
+
+@media (max-width:994px){
     /* show in mobile */
     .sideNav {
         display: block;
