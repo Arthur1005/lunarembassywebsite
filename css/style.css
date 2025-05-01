@@ -145,11 +145,17 @@ body {
 }
 
 
+.mobileNavHamburger {
+    align-self: center;
+}
+
+.hamburger img {
+    width: 28px;
+}
+
 .hamburger {
     all: unset;
-    color: white;
     display: none;
-    font-size: 50px;
     transition: color 1.0s;
 }
 
