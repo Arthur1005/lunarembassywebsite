@@ -1,0 +1,35 @@
+document.getElementById("hamburger").onclick = function () {
+    document.getElementById("sideNav").classList.add("active");
+};
+
+sideNavCloseBtn.onclick = () => {
+    sideNav.classList.remove('active');
+};
+
+document.getElementById("searchIcon").onclick = function () {
+    document.getElementById("mobileSearchSectionBG").classList.add("active");
+};
+
+function toggleMobileSearch() {
+    const dropdown = document.getElementById('mobileSearchSectionBG');
+    const searchIcon = document.getElementById('searchIcon');
+    const cartIcon = document.getElementById('cartIcon');
+    const mobileLogo = document.getElementById('mobileLogo');
+    const hamburgerIcon = document.getElementById('hamburger');
+    const searchDropped = dropdown.classList.contains('active');
+  
+    dropdown.classList.toggle('active');
+    hamburgerIcon.classList.toggle('black');
+  
+    if (searchDropped) {
+        searchIcon.classList.remove('invert');
+        cartIcon.classList.remove('invert');
+        mobileLogo.classList.remove('invert');
+    } else {
+        searchIcon.classList.add('invert');
+        cartIcon.classList.add('invert');
+        mobileLogo.classList.add('invert');
+    }
+  }
+
+  document.getElementById('searchIcon').onclick = toggleMobileSearch;

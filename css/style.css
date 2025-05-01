@@ -1,0 +1,264 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {    /* font 1 */
+    font-family: 'Akira Expanded';
+    src: url('../assets/fonts/Akira\ Expanded\ Demo.otf');
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-image: url('../assets/img/backGroundImg.jpg');
+    background-size: cover;
+    background-repeat: repeat;
+    background-position: center center;
+    min-width: 300px;
+}
+
+
+/* laptop nav */
+
+.topNavHeaderContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1300px;
+    margin: 30px auto;
+    padding: 0 30px;
+}
+
+.navList {
+    display: flex;
+    column-gap: 60px;
+}
+
+.navLink {
+    font-family: 'Akira Expanded', sans-serif;
+    font-size: 20px; 
+}
+
+.navLink:hover,
+.navLink:focus {
+    color: #FF8228;
+    transition: 0.5s; 
+}
+
+
+/* mobile nav */
+
+.sideNav {
+    width: 70%;
+    background-color: white;
+    display: none;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+}
+
+.sideNav {
+    transform: translateX(-100%); /* Start hidden to the left */
+    transition: transform 0.8s ease; /* Smooth sliding effect */
+}
+
+.sideNav.active {
+    transform: translateX(0);
+}
+
+.sideNav a {
+    font-family: 'Akira Expanded', sans-serif;
+    text-decoration: none;
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    display: block;
+    padding: 20px 40px;
+}
+
+.sideNav .close {
+    font-size: 16px;
+    margin-bottom: 60px;
+    text-decoration: underline;
+    text-decoration-thickness: 4px;
+    text-underline-offset: 4px;
+}
+
+.sideNavHeaderContent { /* all items in header */
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 700px;
+    margin: 10px auto;
+    padding: 0 20px;
+}
+
+.mobileNavIcon { /* the icons */
+    z-index: 1;
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
+    color: white;
+}
+
+.mobileNavIcon button {
+    background-color: transparent; 
+    border: none;
+}
+
+#mobileLogo {
+    position: absolute;
+    height: 20px;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#mobileLogo {
+    transition: filter 1.0s ease;
+}
+
+#mobileLogo.invert {
+    filter: invert(1);
+}
+
+.icon {
+    height: 25px;
+    transition: filter 1.0s ease;
+}
+
+.icon.invert {
+    filter: invert(1);
+}
+
+
+.hamburger {
+    all: unset;
+    color: white;
+    display: none;
+    font-size: 50px;
+    transition: color 1.0s;
+}
+
+.hamburger.black {
+    color: black;
+}
+
+.hamburger.white {
+    color: white;
+}
+
+
+
+.mobileSearchSectionBG {
+    transform: translateY(-100%);
+    transition: transform 0.8s ease; 
+    z-index: -1;
+    display: none;
+    position: absolute;
+    top: 0;
+    background-color: white;
+    height: 160px;
+    max-width: 800px;
+    width: 100%;
+    margin: 0px auto;
+    padding: 0px 20px;
+}
+
+.mobileSearchSectionBG.active {
+    transform: translateY(0);
+}
+
+.mobileSearchSection {
+    font-family: 'Akira Expanded';
+    display: none;
+    background-color: black;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 700px;
+    height: 33.5px;
+    width: 100%;
+    margin: 100px auto;
+    border-radius: 20px;
+    height: 50;
+}
+
+#mobileSearchInput {
+    border-style: solid;
+    border-radius: 20px;
+    border-color: black;
+    display: flex;
+    padding: 5px;
+    margin: 2px;
+    margin-right: 20px;
+    width: 100%;
+    height: 50;
+    justify-content: left;
+
+    font-family: 'Akira Expanded';
+    text-transform: uppercase;
+    text-align: center;
+    caret-color: black;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+
+#mobileSearchBtn {
+    color: white;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    justify-content: right;
+    margin-right: 20px;
+}
+
+
+@media (max-width:800px){
+    /* show in mobile */
+    .sideNav {
+        display: block;
+    }
+
+    #hamburger {
+        display: flex;
+    }
+
+    .sideNavHeaderContent {
+        display: flex;
+    }
+
+    .mobileSearchSection {
+        display: flex;
+    }
+
+    .mobileSearchSectionBG {
+        display: block;
+    }
+
+    /* show in laptop*/
+    .navList {
+        display: none;
+    }
+
+    .topNavHeaderContent {
+        display: none;
+    }   
+}
+

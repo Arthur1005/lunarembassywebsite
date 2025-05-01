@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <div class="topNavHeaderContent">
+            <a href="#" id="laptopLogo">
+                <img src="../assets/img/logo_w.png" alt="logo_w">
+            </a>
+            <nav id="topNav"> 
+                <ul class="navList">
+                    <li class="navItem">
+                        <a href="productList.html" class="navLink">Product</a>
+                    </li>
+                    <li class="navItem">
+                        <a href="about.html" class="navLink">About</a>
+                    </li>
+                    <li class="navItem">
+                        <a href="search" class="navLink">Search</a>
+                    </li class="navItem">
+                    <li>
+                        <a href="cart.html" class="navLink">Cart</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="sideNavHeaderContent">
+            <div class="mobileNavHamburger">
+                <button class="hamburger" id="hamburger">&#9776;</button>
+            </div>
+            <div class="mobileNavLogo">
+                <a href="#"  id="mobileLogo"><img src="../assets/img/logo_w.png" alt="logo" width="180px"></a>
+            </div>
+            <div class="mobileNavIcon">
+                <button onclick="toggleMobileSearch">
+                    <img src="../assets/img/search_icon_w.png" alt="" class="icon" id="searchIcon">
+                </button>
+                <button>
+                    <img src="../assets/img/cart_icon_w.png" alt="" class="icon" id="cartIcon">
+                </button>
+            </div>
+        </div>
+
+        <div class="mobileSearchSectionBG" id="mobileSearchSectionBG">
+            <div class="mobileSearchSection">
+                <input type="text" name="search" size="20" maxlength="40" autocomplete="off" id="mobileSearchInput">
+                <a href="#" id="mobileSearchBtn">Search</a>
+            </div>
+        </div>
+    </header>
+
+    <aside class="sideNav" id="sideNav">
+        <a href="#" class="close" id="sideNavCloseBtn">Close</a>
+        <a href="home.html" class="sideNavLink">Home</a>
+        <a href="productList.html" class="sideNavLink">Product</a>
+        <a href="about.html" class="sideNavLink">About</a>
+    </aside>
+    <script src="../js/style.js"></script>
+</body>
+</html>
