@@ -120,7 +120,7 @@ body {
     border: none;
 }
 
-#mobileLogo img{
+#mobileLogoPng{
     position: absolute;
     width: 170px;
     top: 20px;
@@ -128,11 +128,11 @@ body {
     transform: translateX(-54%);
 }
 
-#mobileLogo {
+#mobileLogoPng {
     transition: filter 1.0s ease;
 }
 
-#mobileLogo.invert {
+#mobileLogoPng.invert {
     filter: invert(1);
 }
 

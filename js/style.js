@@ -14,7 +14,7 @@ function toggleMobileSearch() {
     const dropdown = document.getElementById('mobileSearchSectionBG');
     const searchIcon = document.getElementById('searchIcon');
     const cartIcon = document.getElementById('cartIcon');
-    const mobileLogo = document.getElementById('mobileLogo');
+    const mobileLogoPng = document.getElementById('mobileLogoPng');
     const hamburgerIcon = document.getElementById('hamburger');
     const searchDropped = dropdown.classList.contains('active');
   
@@ -23,12 +23,12 @@ function toggleMobileSearch() {
     if (searchDropped) {
         searchIcon.classList.remove('invert');
         cartIcon.classList.remove('invert');
-        mobileLogo.classList.remove('invert');
+        mobileLogoPng.classList.remove('invert');
         hamburgerIcon.classList.remove('invert');
     } else {
         searchIcon.classList.add('invert');
         cartIcon.classList.add('invert');
-        mobileLogo.classList.add('invert');
+        mobileLogoPng.classList.add('invert');
         hamburgerIcon.classList.add('invert');
     }
   }
