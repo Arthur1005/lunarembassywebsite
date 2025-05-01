@@ -40,9 +40,17 @@ body {
     padding: 0 30px;
 }
 
+#laptopLogo {
+    width: 280px;
+}
+
 .navList {
     display: flex;
     column-gap: 60px;
+}
+
+.navItem:first-child {
+    margin-left: 60px;
 }
 
 .navLink {
