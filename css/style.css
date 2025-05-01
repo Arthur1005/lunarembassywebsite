@@ -156,7 +156,11 @@ body {
 .hamburger {
     all: unset;
     display: none;
-    transition: color 1.0s;
+    transition: filter 1.0s ease;
+}
+
+.hamburger.invert {
+    filter: invert(1);
 }
 
 .hamburger.black {

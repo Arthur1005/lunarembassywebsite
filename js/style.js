@@ -19,16 +19,17 @@ function toggleMobileSearch() {
     const searchDropped = dropdown.classList.contains('active');
   
     dropdown.classList.toggle('active');
-    hamburgerIcon.classList.toggle('black');
   
     if (searchDropped) {
         searchIcon.classList.remove('invert');
         cartIcon.classList.remove('invert');
         mobileLogo.classList.remove('invert');
+        hamburgerIcon.classList.remove('invert');
     } else {
         searchIcon.classList.add('invert');
         cartIcon.classList.add('invert');
         mobileLogo.classList.add('invert');
+        hamburgerIcon.classList.add('invert');
     }
   }
 
