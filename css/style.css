@@ -30,12 +30,6 @@ header {
     flex: 1;
 }
 
-footer {
-    max-height: auto;
-    background-color: white;
-    
-}
-
 ul {
     list-style: none;
 }
@@ -51,7 +45,7 @@ a {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        max-width: 1300px;
+        width: 100%;
         margin: 30px auto;
         padding: 0 30px;
     }
@@ -262,11 +256,75 @@ a {
 
 
     /* footer */
-    footer:first-child {
+    footer {
+        font-family: 'Akira Expanded';
+        max-height: auto;
+        background-color: white;
         display: flex;
         flex-direction: column;
     }
 
+    .footerTop {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+        margin: 40px auto 10px auto;
+        padding: 0 50px;
+    }
+
+    .footerBottom {
+        width: 100%;
+        align-self: flex-end;
+        margin: 0px auto 1px auto;
+        padding: 0 50px;
+    }
+
+    .footerLeft {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .footerLeft a {
+        color: black;
+        font-size: 15px;
+        margin: 4px;
+    }
+
+    footer p {
+        font-size: 20px;
+        margin-bottom: 26px;
+    }
+    
+    .footerLeft div {
+        display: flex;
+        min-width: 270px;
+        flex-direction: column;
+    }
+
+    .footerRight form {
+        display: flex;
+        }
+    
+    .footerRight {
+        justify-self: end;
+    }
+
+    .footerRightContent {
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    #footerLine {
+        border: 1.6px solid black;
+        width: 550px;
+        margin: 40px 0px 24px;
+    }
+
+    #footerStatement {
+        font-size: 12px;
+    }
 
 @media (max-width:994px){
     /* show in mobile */
