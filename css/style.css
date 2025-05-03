@@ -207,6 +207,9 @@ a {
 
     #mobileSearchBtn { /* search button*/
         color: white;
+        font-family: 'Akira Expanded';
+        background: none;
+        border: none;
         font-weight: bold;
         font-size: 1em;
         cursor: pointer;
@@ -262,6 +265,7 @@ a {
         background-color: white;
         display: flex;
         flex-direction: column;
+        min-width: 994px;
     }
 
     .footerTop {
@@ -270,19 +274,21 @@ a {
         justify-content: space-between;
         width: 100%;
         margin: 40px auto 10px auto;
-        padding: 0 50px;
+        padding: 0 30px;
     }
 
     .footerBottom {
         width: 100%;
         align-self: flex-end;
         margin: 0px auto 1px auto;
-        padding: 0 50px;
+        padding: 0 30px;
     }
 
     .footerLeft {
         display: flex;
         flex-direction: row;
+        min-width: 700px;
+        justify-content: space-between;
     }
 
     .footerLeft a {
@@ -302,20 +308,52 @@ a {
         flex-direction: column;
     }
 
-    .footerRight form {
-        display: flex;
-        }
-    
-    .footerRight {
-        justify-self: end;
-    }
-
     .footerRightContent {
         display: flex;
         flex-direction: column;
-        
     }
 
+    .footerRightContent > :nth-child(1) {
+        margin-bottom: 30px;
+    }
+
+    .footerRightContent > :nth-child(2) {
+        margin-bottom: 10px;
+    }
+
+    .footerRightContent label {
+        font-size: 20px;
+    }
+
+    .footerRightContent input{
+        width: 240px;
+        height: 30px;
+        font-family: 'Akira Expanded';
+        font-size: 10px;
+        border: 1px solid black;
+        border-radius: 0px;  
+        text-align: center;
+    }
+
+    .footerRightContent ::placeholder {
+        color: #c5c5c5;
+        justify-content: left;
+        text-align: center;
+        caret-color: black;
+    } 
+
+    #footerSubmitBtn {
+        color: white;
+        font-family: 'Akira Expanded';
+        background: black;
+        border: none;
+        font-weight: bold;
+        font-size: 1em;
+        cursor: pointer;
+        width: 144px;
+        height: 34px;
+    }
+    
     #footerLine {
         border: 1.6px solid black;
         width: 550px;
