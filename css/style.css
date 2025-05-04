@@ -253,9 +253,57 @@ a {
         text-underline-offset: 4px;
     }
 
+/* main */
+    main {
+        color: white;
+        display: block;
+    }
+
+    .homePageTop{
+        font-family: 'Akira Expanded';
+    }
+
+    .homePageTop h1 {
+        font-size: 80px;
+    }
+
+    .homePageTop h3 {
+        font-size: 36px;
+    }
+
+    .homePageTop h2 {
+        font-size: 18px;
+    }
+
+    .homePageTop p {
+        font-size: 15px;
+    }
+
+    .homePageTop button, .homePageBottom button {
+        color: white;
+        font-family: 'Akira Expanded';
+        background: none;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+    }
+
+    .homePageTop img {
+        height: 400px;
+    }
+
+    .homePageBottom {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .featureProduct {
+        display: flex;
+        flex-direction: row;
+    }
 
 
-    /* footer */
+/* footer */
     footer {
         font-family: 'Akira Expanded';
         max-height: auto;
@@ -499,6 +547,6 @@ a {
     }
   
     #footerStatement {
-      font-size: clamp(8px, 2vw, 10px);
+      font-size: clamp(px, 2vw, 10px);
     }
   }
