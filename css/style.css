@@ -217,9 +217,6 @@ a {
         margin-right: 20px;
     }
 
-
-
-
     .sideNav {
         width: 275px;
         background-color: white;
@@ -397,3 +394,111 @@ a {
     }   
 }
 
+
+@media (max-width:994px){
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+  
+    footer {
+      font-family: 'Akira Expanded';
+      background-color: white;
+      display: flex;
+      flex-direction: column;                
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      overflow-x: hidden;
+      padding-top: 20px;
+    }
+  
+    .footerTop,
+    .footerBottom {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      padding: 0 30px;
+      margin: 20px auto;
+    }
+  
+    .footerLeft {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+  
+    .footerLeft a {
+      color: black;
+      font-size: clamp(10px, 2vw, 15px);
+      margin: 6px;
+    }
+  
+    footer p {
+      font-size: clamp(16px, 2vw, 20px);
+      margin-bottom: 14px;
+    }
+  
+    .footerLeft div {
+      display: flex;
+      min-height: 100px;
+      flex-direction: column;
+      margin-bottom: 40px;
+    }
+  
+    .footerRightContent {
+      display: flex;
+      flex-direction: column;
+    }
+  
+    .footerRightContent > :nth-child(1) {
+      margin-bottom: 10px;
+    }
+  
+    .footerRightContent > :nth-child(2) {
+      margin-bottom: 10px;
+    }
+  
+    .footerRightContent label {
+      font-size: clamp(16px, 2vw, 20px);
+    }
+  
+    .footerRightContent input {
+      width: 100%;
+      max-width: 240px;
+      height: 30px;
+      font-family: 'Akira Expanded';
+      font-size: clamp(10px, 2vw, 10px);
+      border: 1px solid black;
+      border-radius: 0;  
+      text-align: center;
+    }
+  
+    .footerRightContent ::placeholder {
+      color: #c5c5c5;
+      text-align: center;
+      caret-color: black;
+    } 
+  
+    #footerSubmitBtn {
+      color: white;
+      font-family: 'Akira Expanded';
+      background: black;
+      border: none;
+      font-weight: bold;
+      font-size: clamp(10px, 2vw, 10px);
+      cursor: pointer;
+      width: clamp(100px, 2vw, 144px);
+      height: clamp(26px, 2vw, 34px); 
+    }
+  
+    #footerLine {
+      border: 1.6px solid black;
+      width: 40%;
+      margin: 20px 0 24px;
+    }
+  
+    #footerStatement {
+      font-size: clamp(8px, 2vw, 10px);
+    }
+  }
