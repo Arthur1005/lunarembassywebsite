@@ -24,6 +24,7 @@ body {
     background-repeat: repeat;
     background-position: center center;
     min-width: 300px;
+    overflow-x: hidden;
 }
 
 header {
@@ -37,6 +38,10 @@ ul {
 a {
     text-decoration: none;
     color: white;
+}
+
+h2 {
+    font-size: 36px;
 }
 
 /* Nav bar*/
@@ -256,52 +261,125 @@ a {
 /* main */
     main {
         color: white;
-        display: block;
+        display: flex;
+        flex-direction: column;
     }
 
-    .homePageTop{
+    .homePageTop, .homePageBottom{
         font-family: 'Akira Expanded';
+        display: flex;
+        flex-direction: column;
+        min-height: 600px;
+        margin: 20px 60px;
+    }
+
+    .homePageTopHeroImg {
+        display: block;
     }
 
     .homePageTop h1 {
         font-size: 80px;
     }
 
-    .homePageTop h3 {
-        font-size: 36px;
-    }
 
-    .homePageTop h2 {
-        font-size: 18px;
+    .homePageTop h3 {
+        font-size: 20px;
     }
 
     .homePageTop p {
         font-size: 15px;
     }
 
-    .homePageTop button, .homePageBottom button {
-        color: white;
+    .homePageTop button {
+        color: black;
         font-family: 'Akira Expanded';
-        background: none;
+        background: white;
         border: none;
         font-size: 18px;
         cursor: pointer;
+        border: 2px solid white;
+        border-radius: 20px;
+        padding: 6px 40px;
     }
 
     .homePageTop img {
-        height: 400px;
+        height: 900px;
+        position: absolute;   
+        top: 200px;
+        right: -120px;
+    }
+
+    #slogan {
+        margin-top: 260px;
+    }
+
+    #sloganButton {
+        margin-top: 30px;
+        margin-bottom: 260px;
+    }
+
+    .homePageTopIntro h2 {
+        margin-bottom: 0px;
+    }
+
+    .homePageTopIntro h3 {
+        margin: 40px auto;
+    }
+
+    .homePageTopIntro p {
+        margin: 0;
+        line-height: 26px;
+        width: 1100px; 
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     .homePageBottom {
-        display: flex;
-        flex-direction: column;
+        margin-top: 180px;
+    }
+
+    .homePageBottom img {
+        width: 290px;
     }
 
     .featureProduct {
         display: flex;
         flex-direction: row;
+        justify-content: space-around;
     }
 
+    .homePageBottom button {
+        color: white;
+        font-family: 'Akira Expanded';
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        padding: 6px 40px;
+    }
+
+    .homePageBottom h2 {
+        margin: 60px 0;
+    }
+
+    .homePageBottom button p {
+        margin: 40px auto;
+    }
+
+    .homePageBottom > :last-child {
+        color: black;
+        font-family: 'Akira Expanded';
+        background: white;
+        border: none;
+        font-size: 20px;
+        max-width: 400px;
+        align-self: center;
+        cursor: pointer;
+        border: 2px solid white;
+        border-radius: 20px;
+        margin: 80px 0;
+        padding: 6px 40px;
+    }
 
 /* footer */
     footer {
