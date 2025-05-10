@@ -10,6 +10,15 @@
     src: url('../assets/fonts/Akira\ Expanded\ Demo.otf');
 }
 
+@keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+}
+
 html, body{
     height: 100%;
     margin: 0px;
@@ -23,6 +32,7 @@ body {
     background-size: cover;
     background-repeat: repeat;
     background-position: center center;
+    min-width: 100vh;
     min-width: 300px;
     overflow-x: hidden;
 }
@@ -71,12 +81,12 @@ h2 {
     .navLink {
         font-family: 'Akira Expanded', sans-serif;
         font-size: 20px; 
+        transition: 0.5s; 
     }
 
     .navLink:hover,
     .navLink:focus { /* orange hover effect */
         color: #FF8228;
-        transition: 0.5s; 
     }
 
 
@@ -183,7 +193,7 @@ h2 {
         width: 100%;
         margin: 100px auto;
         border-radius: 20px;
-        height: 50;
+        height: 50px;
     }
 
     #mobileSearchInput { /* search bar */
@@ -195,7 +205,7 @@ h2 {
         margin: 2px;
         margin-right: 20px;
         width: 100%;
-        height: 50;
+        height: 50px;
         justify-content: left;
 
         font-family: 'Akira Expanded';
@@ -260,12 +270,13 @@ h2 {
 
 /* main */
     main {
+        flex: 1 0 auto;
         color: white;
         display: flex;
         flex-direction: column;
     }
 
-    .homePageTop, .homePageBottom{
+    .homePageTop, .homePageBottom {
         font-family: 'Akira Expanded';
         display: flex;
         flex-direction: column;
@@ -280,7 +291,6 @@ h2 {
     .homePageTop h1 {
         font-size: 80px;
     }
-
 
     .homePageTop h3 {
         font-size: 20px;
@@ -300,6 +310,12 @@ h2 {
         border: 2px solid white;
         border-radius: 20px;
         padding: 6px 40px;
+        transition: 0.5s;
+    }
+
+    .homePageTop button:hover,
+    .homePageTop button:focus {
+        color: #FF8228;
     }
 
     .homePageTop img {
@@ -307,7 +323,9 @@ h2 {
         position: absolute;   
         top: 200px;
         right: -120px;
+        animation: spin 300s linear infinite;
     }
+    
 
     #slogan {
         margin-top: 260px;
@@ -316,6 +334,17 @@ h2 {
     #sloganButton {
         margin-top: 30px;
         margin-bottom: 260px;
+        transition: 0.5s;
+    }
+
+    #sloganButton:hover,
+    #sloganButton:focus {
+        color: #FF8228;
+    }
+
+    #mobileLine,
+    #mobileLine2 {
+        display: none;
     }
 
     .homePageTopIntro h2 {
@@ -340,6 +369,7 @@ h2 {
 
     .homePageBottom img {
         width: 290px;
+        animation: spin 300s linear infinite;
     }
 
     .featureProduct {
@@ -379,6 +409,12 @@ h2 {
         border-radius: 20px;
         margin: 80px 0;
         padding: 6px 40px;
+        transition: 0.5s; 
+    }
+
+    .homePageBottom > :last-child:hover,
+    .homePageBottom > :last-child:focus {
+        color: #FF8228;
     }
 
 /* footer */
@@ -388,9 +424,12 @@ h2 {
         background-color: white;
         display: flex;
         flex-direction: column;
-        min-width: 994px;
+        width: 100%;
+        flex-shrink: 0;
+        position: relative;
+        z-index: 1;
     }
-
+    
     .footerTop {
         display: flex;
         flex-direction: row;
@@ -399,27 +438,27 @@ h2 {
         margin: 40px auto 10px auto;
         padding: 0 30px;
     }
-
+    
     .footerBottom {
         width: 100%;
         align-self: flex-end;
         margin: 0px auto 1px auto;
         padding: 0 30px;
     }
-
+    
     .footerLeft {
         display: flex;
         flex-direction: row;
         min-width: 700px;
         justify-content: space-between;
     }
-
+    
     .footerLeft a {
         color: black;
         font-size: 15px;
         margin: 4px;
     }
-
+    
     footer p {
         font-size: 20px;
         margin-bottom: 26px;
@@ -430,24 +469,24 @@ h2 {
         min-width: 270px;
         flex-direction: column;
     }
-
+    
     .footerRightContent {
         display: flex;
         flex-direction: column;
     }
-
+    
     .footerRightContent > :nth-child(1) {
         margin-bottom: 30px;
     }
-
+    
     .footerRightContent > :nth-child(2) {
         margin-bottom: 10px;
     }
-
+    
     .footerRightContent label {
         font-size: 20px;
     }
-
+    
     .footerRightContent input{
         width: 240px;
         height: 30px;
@@ -457,14 +496,14 @@ h2 {
         border-radius: 0px;  
         text-align: center;
     }
-
+    
     .footerRightContent ::placeholder {
         color: #c5c5c5;
         justify-content: left;
         text-align: center;
         caret-color: black;
     } 
-
+    
     #footerSubmitBtn {
         color: white;
         font-family: 'Akira Expanded';
@@ -482,10 +521,10 @@ h2 {
         width: 550px;
         margin: 40px 0px 24px;
     }
-
+    
     #footerStatement {
         font-size: 12px;
-    }
+    } 
 
 @media (max-width:994px){
     /* show in mobile */
@@ -517,114 +556,293 @@ h2 {
 
     .topNavHeaderContent {
         display: none;
-    }   
-}
+    }
 
+    .homePageTop, .homePageBottom {
+        font-family: 'Akira Expanded';
+        display: flex;
+        flex-direction: column;
+        margin: 0px 20px;
+        padding: 0px 0px;
+    }
 
-@media (max-width:994px){
+    .homePageTopHeroImg {
+        display: block;
+        height: auto;
+        gap: 20px;
+    }
+
+    .homePageTopHeroImg h1{
+        z-index: 1;
+    }
+
+    .homePageTop h1 {
+        width: 350px;
+        display: flow-root;
+        position: relative;
+        font-size: 70px;
+        text-align: right;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        margin: 180px 0 30px 0;
+    }
+
+    #slogan {
+        margin-top: 0px;
+    }
+
+    .homePageTop h2 {
+        width: 190px;
+        display: flow-root;
+        position: relative;
+        font-size: 20px;
+        text-align: left;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .homePageTop h3 {
+        font-size: 8px;
+    }
+
+    .homePageTop p {
+        font-size: 10px;
+    }
+
+    .homePageTop button {
+        color: black;
+        font-family: 'Akira Expanded';
+        background: white;
+        border: none;
+        font-size: 12px;
+        cursor: pointer;
+        border: 2px solid white;
+        border-radius: 20px;
+        padding: 6px auto;
+        transition: 0.5s;
+    }
+
+    .homePageTop img {
+        z-index: -1;
+        height: 520px;
+        position: absolute;   
+        top: 100px;
+        left: -260px;
+        animation: spin 300s linear infinite;
+    }
+
+    #sloganButton {
+        margin-top: 20px;
+        margin-bottom: 50px;
+        transition: 0.5s;
+    }
+
+    #mobileLine {
+        display: block;
+        width: 50%;
+        color: white;
+        position: center center;
+        margin: 50px auto;
+        border: 1.6px solid white;
+        border-radius: 20px;
+    }
+
+    .homePageTopIntro h2 {
+        margin-bottom: 0px;
+        width: 300px;
+        display: flow-root;
+        position: relative;
+        font-size: 20px;
+        text-align: left;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .homePageTopIntro h3 {
+        margin: 20px auto;
+        font-size: 10px;
+    }
+
+    .homePageTopIntro p {
+        margin: 0;
+        line-height: 20px;
+        width: 100%; 
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    #mobileLine2 {
+        display: block;
+        width: 50%;
+        color: white;
+        position: center center;
+        margin: 50px auto;
+        border: 1.6px solid white;
+        border-radius: 20px;
+    }
+
+    .homePageBottom {
+        margin-top: 20px;
+        margin-bottom: 40px;
+        min-height: auto;
+    }
+
+    .homePageBottom img {
+        width: 100%;
+        animation: spin 300s linear infinite;
+    }
+
+    .featureProduct {
+        justify-self: center;
+        margin: 20px 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    .featureProduct > :last-child {
+        display: none;
+    }
+
+    .homePageBottom button {
+        color: white;
+        font-family: 'Akira Expanded';
+        background: none;
+        border: none;
+        font-size: 10px;
+        cursor: pointer;
+        padding: 6px 10px;
+    }
+
+    .homePageBottom h2 {
+        margin: 0px 0;
+        font-size: 20px;
+    }
+
+    .homePageBottom button p {
+        margin: 20px auto;
+    }
+
+    .homePageBottom > :last-child {
+        color: black;
+        font-family: 'Akira Expanded';
+        background: white;
+        border: none;
+        font-size: 10px;
+        max-width: 400px;
+        align-self: center;
+        cursor: pointer;
+        border: 2px solid white;
+        border-radius: 20px;
+        margin: 0 0;
+        padding: 6px 20px;
+        transition: 0.5s; 
+    }
+    
     *, *::before, *::after {
       box-sizing: border-box;
     }
   
     footer {
-      font-family: 'Akira Expanded';
-      background-color: white;
-      display: flex;
-      flex-direction: column;                
-      width: 100%;
-      max-width: 100%;
-      min-width: 0;
-      overflow-x: hidden;
-      padding-top: 20px;
-    }
-  
+        font-family: 'Akira Expanded';
+        background-color: white;
+        display: flex;
+        flex-direction: column;                
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow-x: hidden;
+        padding-top: 20px;
+      }
+    
     .footerTop,
     .footerBottom {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 100%;
-      padding: 0 30px;
-      margin: 20px auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 20px;
+        margin: 20px auto;
     }
-  
+    
     .footerLeft {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+        display: flex;
+        flex-direction: column;
+        min-width: unset; /* Remove the min-width */
+        justify-content: space-between;
     }
-  
+    
     .footerLeft a {
-      color: black;
-      font-size: clamp(10px, 2vw, 15px);
-      margin: 6px;
+        color: black;
+        font-size: 14px;
+        margin: 6px;
     }
-  
+    
     footer p {
-      font-size: clamp(16px, 2vw, 20px);
-      margin-bottom: 14px;
+        font-size: 16px;
+        margin-bottom: 14px;
     }
-  
+    
     .footerLeft div {
-      display: flex;
-      min-height: 100px;
-      flex-direction: column;
-      margin-bottom: 40px;
+        display: flex;
+        min-width: unset; /* Remove the min-width */
+        min-height: 100px;
+        flex-direction: column;
+        margin-bottom: 40px;
     }
-  
+    
     .footerRightContent {
-      display: flex;
-      flex-direction: column;
+        display: flex;
+        flex-direction: column;
     }
-  
+    
     .footerRightContent > :nth-child(1) {
-      margin-bottom: 10px;
+        margin-bottom: 10px;
     }
-  
+    
     .footerRightContent > :nth-child(2) {
-      margin-bottom: 10px;
+        margin-bottom: 10px;
     }
-  
+    
     .footerRightContent label {
-      font-size: clamp(16px, 2vw, 20px);
+        font-size: 16px;
     }
-  
+    
     .footerRightContent input {
-      width: 100%;
-      max-width: 240px;
-      height: 30px;
-      font-family: 'Akira Expanded';
-      font-size: clamp(10px, 2vw, 10px);
-      border: 1px solid black;
-      border-radius: 0;  
-      text-align: center;
+        width: 100%;
+        max-width: 240px;
+        height: 30px;
+        font-family: 'Akira Expanded';
+        font-size: 10px;
+        border: 1px solid black;
+        border-radius: 0;  
+        text-align: center;
     }
-  
+    
     .footerRightContent ::placeholder {
-      color: #c5c5c5;
-      text-align: center;
-      caret-color: black;
+        color: #c5c5c5;
+        text-align: center;
+        caret-color: black;
     } 
-  
+    
     #footerSubmitBtn {
-      color: white;
-      font-family: 'Akira Expanded';
-      background: black;
-      border: none;
-      font-weight: bold;
-      font-size: clamp(10px, 2vw, 10px);
-      cursor: pointer;
-      width: clamp(100px, 2vw, 144px);
-      height: clamp(26px, 2vw, 34px); 
+        color: white;
+        font-family: 'Akira Expanded';
+        background: black;
+        border: none;
+        font-weight: bold;
+        font-size: 12px;
+        cursor: pointer;
+        width: 120px;
+        height: 30px; 
     }
-  
+    
     #footerLine {
-      border: 1.6px solid black;
-      width: 40%;
-      margin: 20px 0 24px;
+        border: 1.6px solid black;
+        width: 40%;
+        margin: 20px 0 24px;
     }
-  
+    
     #footerStatement {
-      font-size: clamp(px, 2vw, 10px);
+        font-size: 10px;
     }
-  }
+}
