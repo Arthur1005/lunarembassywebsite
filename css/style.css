@@ -274,10 +274,10 @@ h2 {
         color: white;
         display: flex;
         flex-direction: column;
+        font-family: 'Akira Expanded';
     }
 
     .homePageTop, .homePageBottom {
-        font-family: 'Akira Expanded';
         display: flex;
         flex-direction: column;
         min-height: 600px;
@@ -364,7 +364,7 @@ h2 {
     }
 
     .homePageBottom {
-        margin-top: 180px;
+        margin-top: 100px;
     }
 
     .homePageBottom img {
@@ -372,7 +372,7 @@ h2 {
         animation: spin 300s linear infinite;
     }
 
-    .featureProduct {
+    .homeFeatureProduct {
         display: flex;
         flex-direction: row;
         justify-content: space-around;
@@ -416,6 +416,44 @@ h2 {
     .homePageBottom > :last-child:focus {
         color: #FF8228;
     }
+
+
+/* product list page */
+    .productListTitle {
+        display: flex;
+        flex-direction: column;
+        margin: 40px 60px;
+    }
+        
+
+    .productListProducts {
+        justify-content: space-around;
+        margin: 10px 60px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); 
+    }
+
+    .productListProducts div {
+        margin: 10px 0 60px 0;
+    }
+
+    .productListProducts img {
+        width: 290px;
+        animation: spin 300s linear infinite;
+        margin-bottom: 20px;
+    }
+
+    .productListProducts button {
+        color: white;
+        width: 100%;
+        font-family: 'Akira Expanded';
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        padding: 6px 40px;
+    }
+
 
 /* footer */
     footer {
@@ -660,13 +698,14 @@ h2 {
 
     .homePageTopIntro h3 {
         margin: 20px auto;
-        font-size: 10px;
+        font-size: 12px;
     }
 
     .homePageTopIntro p {
         margin: 0;
         line-height: 20px;
         width: 100%; 
+        font-size: 12px;
         word-wrap: break-word;
         overflow-wrap: break-word;
     }
@@ -692,14 +731,14 @@ h2 {
         animation: spin 300s linear infinite;
     }
 
-    .featureProduct {
+    .homeFeatureProduct {
         justify-self: center;
         margin: 20px 0;
         display: grid;
         grid-template-columns: repeat(2, 1fr); 
     }
 
-    .featureProduct > :last-child {
+    .homeFeatureProduct > :last-child {
         display: none;
     }
 
@@ -708,7 +747,7 @@ h2 {
         font-family: 'Akira Expanded';
         background: none;
         border: none;
-        font-size: 10px;
+        font-size: 12px;
         cursor: pointer;
         padding: 6px 10px;
     }
@@ -727,7 +766,7 @@ h2 {
         font-family: 'Akira Expanded';
         background: white;
         border: none;
-        font-size: 10px;
+        font-size: 12px;
         max-width: 400px;
         align-self: center;
         cursor: pointer;
@@ -736,6 +775,53 @@ h2 {
         margin: 0 0;
         padding: 6px 20px;
         transition: 0.5s; 
+    }
+
+    .productListTitle {
+        display: flex;
+        flex-direction: column;
+        margin: 40px 30px;
+    }
+
+    .productListProducts {
+        justify-content: space-around;
+        margin: 10px 30px;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    .productListTitle {
+        margin: 20px 30px;
+    }
+
+    .productListTitle h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .productListTitle h3 {
+        font-size: 12px;
+    }
+
+    .productListProducts img {
+        width: 100%;
+        animation: spin 300s linear infinite;
+        margin-bottom: 20px;
+    }
+
+    .productListProducts p {
+        font-size: 12px;
+    }
+    
+    .productListProducts button {
+        color: white;
+        width: 100%;
+        font-family: 'Akira Expanded';
+        background: none;
+        border: none;
+        font-size: 10px;
+        cursor: pointer;
+        padding: 0 10px;
     }
     
     *, *::before, *::after {
@@ -773,12 +859,12 @@ h2 {
     
     .footerLeft a {
         color: black;
-        font-size: 14px;
+        font-size: 12px;
         margin: 6px;
     }
     
     footer p {
-        font-size: 16px;
+        font-size: 14px;
         margin-bottom: 14px;
     }
     
@@ -804,7 +890,7 @@ h2 {
     }
     
     .footerRightContent label {
-        font-size: 16px;
+        font-size: 14px;
     }
     
     .footerRightContent input {

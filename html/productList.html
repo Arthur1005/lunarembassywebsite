@@ -4,8 +4,150 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    
+    <header>
+        <div class="topNavHeaderContent">
+            <a href="../html/home.html">
+                <img src="../assets/img/logo_w.png" alt="logo_w" id="laptopLogo">
+            </a>
+            <nav> 
+                <ul class="navList">
+                    <li>
+                        <a href="productList.html" class="navLink">Product</a>
+                    </li>
+                    <li>
+                        <a href="about.html" class="navLink">About</a>
+                    </li>
+                    <li>
+                        <a href="search" class="navLink">Search</a>
+                    </li>
+                    <li>
+                        <a href="cart.html" class="navLink">Cart</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <!-- mobile navigation -->
+        <div class="sideNavHeaderContent">
+            <div class="mobileNavHamburger">
+                <button class="hamburger" id="hamburger"><img src="../assets/img/side_nav_ham_w.png" alt=""></button>
+            </div>
+            <div class="mobileNavLogo">
+                <a href="../html/home.html"  id="mobileLogo"><img src="../assets/img/logo_w.png" alt="logo" id="mobileLogoPng"></a>
+            </div>
+            <div class="mobileNavIcon">
+                <button onclick="toggleMobileSearch">
+                    <img src="../assets/img/search_icon_w.png" alt="" class="icon" id="searchIcon">
+                </button>
+                <button>
+                    <img src="../assets/img/cart_icon_w.png" alt="" class="icon" id="cartIcon">
+                </button>
+            </div>
+        </div>
+
+        <div class="mobileSearchSectionBG" id="mobileSearchSectionBG">
+            <div class="mobileSearchSection">
+                <input type="text" name="search" size="20" maxlength="40" autocomplete="off" id="mobileSearchInput">
+                <button type="submit" id="mobileSearchBtn">Search</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="productListTitle">
+            <h2>Product</h2>
+            <h3>Buy Land on these planets !</h3>
+        </section>
+        <section class="productListProducts">
+            <div>
+                <button onclick="location.href='../html/indiviProduct.html'">
+                    <img src="../assets/img/moon.png" alt="">
+                    <p>Moon</p>
+                </button>
+            </div>
+            <div>
+                <button>
+                    <img src="../assets/img/mercury.png" alt="">
+                    <p>mercury</p>
+                </button>
+            </div>
+            <div>
+                <button>
+                    <img src="../assets/img/pluto.png" alt="">
+                    <p>pluto</p>
+                </button>
+            </div>
+            <div>
+                <button onclick="location.href='../html/indiviProduct.html'">
+                    <img src="../assets/img/mars.png" alt="">
+                    <p>Mars</p>
+                </button>
+            </div>
+            <div>
+                <button>
+                    <img src="../assets/img/venus.png" alt="">
+                    <p>Venus</p>
+                </button>
+            </div>
+            <div>
+                <button>
+                    <img src="../assets/img/jupitermoon.png" alt="">
+                    <p>Jupiter Moon</p>
+                </button>
+            </div>
+        </section>
+    </main>
+
+
+
+    <aside class="sideNav" id="sideNav">
+        <a href="#" class="close" id="sideNavCloseBtn">Close</a>
+        <a href="home.html" class="sideNavLink">Home</a>
+        <a href="productList.html" class="sideNavLink">Product</a>
+        <a href="about.html" class="sideNavLink">About</a>
+    </aside>
+    <footer>
+        <div class="footerTop">
+            <div  class="footerLeft">
+                <div>
+                    <p>information</p>
+                    <a href="">About Us</a>
+                    <a href="">News</a>
+                    <a href="">Our Founder</a>
+                    <a href="">Press Releases</a>
+                </div>
+                <div>
+                    <p>quick links</p>
+                    <a href="">Buy now</a>
+                    <a href="">Terms</a>
+                    <a href="">Privacy</a>
+                    <a href="">Contact Us</a>
+                </div>
+                <div>
+                    <p>social</p>
+                    <a href="">Instagram</a>
+                    <a href="">Facebook</a>
+                    <a href="">Youtube</a>
+                    <a href="">X Twitter</a>
+                </div>
+            </div>
+            <div class="footerRight">
+                <form action="" class="footerRightContent">
+                    <label for="">newsletter</label>
+                    <input type="text" placeholder="enter your email address">
+                    <button type="submit" id="footerSubmitBtn">subscribe</button>
+                </form>
+            </div>
+        </div>
+        <hr id="footerLine">
+        <div class="footerBottom">
+            <p id="footerStatement">&#169; 2025 Lunar embassy. all right reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/style.js"></script>
+
 </body>
 </html>
