@@ -19,6 +19,12 @@
     }
 }
 
+@keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0); }
+}
+
 html, body{
     height: 100%;
     margin: 0px;
@@ -454,6 +460,201 @@ h2 {
         padding: 6px 40px;
     }
 
+/* indivi */
+    .indiviPageTop, .indiviPageBottom {
+        display: flex;
+        flex-direction: column;
+        min-height: 600px;
+        margin: 20px 60px;
+    }
+
+    .indiviPageTopHeroImg {
+        display: block;
+    }
+
+    .indiviPageTop h1 {
+        font-size: 80px;
+    }
+
+    .indiviPageTop h3 {
+        font-size: 20px;
+    }
+
+    .indiviPageTop p {
+        font-size: 15px;
+    }
+
+    .indiviPageTop button {
+        color: black;
+        font-family: 'Akira Expanded';
+        background: white;
+        border: none;
+        font-size: 18px;
+        cursor: pointer;
+        border: 2px solid white;
+        border-radius: 20px;
+        padding: 6px 40px;
+        transition: 0.5s;
+    }
+
+    .indiviPageTopInfoTop > * {
+        margin: 20px 0;
+    }
+
+    #price {
+        font-size: 6.5rem;
+    }
+
+
+    .indiviPageTopInfoDown > * {
+        margin: 20px 0;
+    }
+
+    #from {
+        margin-top: 120px;
+    }
+    
+    #locationOffer {
+        font-size: 20px;
+    }
+    
+    .indiviPageTop button:hover,
+    .indiviPageTop button:focus {
+        color: #FF8228;
+    }
+
+    .indiviPageTop img {
+        height: 900px;
+        position: absolute;   
+        top: 200px;
+        right: -120px;
+        animation: spin 300s linear infinite;
+    }
+    
+    #includings {
+        display: flex;
+        flex: row;
+        row-gap: 20px;
+    }
+
+    #includings p {
+        color: black;
+        border: 1px solid white;
+        border-radius: 20px;
+        padding: 6px 20px;
+        margin-right: 20px;
+        background-color: white;
+    }
+
+    .readMoreButton {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-top: 20px;
+    }
+
+    #readMoreButton {
+        font-family: 'Akira Expanded';
+        font-size: 18px;
+        color: black;
+        background: white;
+        border: 2px solid white;
+        border-radius: 20px;
+        padding: 6px 20px;
+        cursor: pointer;
+        transition: 0.5s;
+    }
+
+    #readMoreIcon {
+        position: static;
+        height: 20px;
+        width: auto;
+        margin: 0;
+        animation: none;
+        animation: float 2s ease-in-out infinite;
+    }
+
+    #readMoreButton:hover,
+    #readMoreButton:focus {
+        color: #FF8228;
+    }
+
+    #mobileLine,
+    #mobileLine2 {
+        display: none;
+    }
+
+    .indiviPageMiddle h2 {
+        margin-bottom: 0px;
+    }
+
+    .indiviPageMiddle h3 {
+        margin: 40px auto;
+    }
+
+    .indiviPageMiddle p {
+        margin: 0;
+        line-height: 26px;
+        width: 1100px; 
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .indiviPageBottom {
+        margin-top: 100px;
+    }
+
+    .indiviPageBottom img {
+        width: 290px;
+        animation: spin 300s linear infinite;
+    }
+
+    .indiviFeatureProduct {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .indiviPageBottom button {
+        color: white;
+        font-family: 'Akira Expanded';
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        padding: 6px 40px;
+    }
+
+    .indiviPageBottom h2 {
+        margin: 60px 0;
+    }
+
+    .indiviPageBottom button p {
+        margin: 40px auto;
+    }
+
+    .indiviPageBottom > :last-child {
+        color: black;
+        font-family: 'Akira Expanded';
+        background: white;
+        border: none;
+        font-size: 20px;
+        max-width: 400px;
+        align-self: center;
+        cursor: pointer;
+        border: 2px solid white;
+        border-radius: 20px;
+        margin: 80px 0;
+        padding: 6px 40px;
+        transition: 0.5s; 
+    }
+
+    .indiviPageBottom > :last-child:hover,
+    .indiviPageBottom > :last-child:focus {
+        color: #FF8228;
+    }
+
+
 
 /* footer */
     footer {
@@ -467,7 +668,6 @@ h2 {
         position: relative;
         z-index: 1;
     }
-    
     .footerTop {
         display: flex;
         flex-direction: row;
