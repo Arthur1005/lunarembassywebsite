@@ -47,53 +47,126 @@ header {
     flex: 1;
 }
 
-ul {
-    list-style: none;
-}
-
 a {
     text-decoration: none;
     color: white;
 }
 
-h2 {
-    font-size: 36px;
+span {
+    color: white;
 }
 
-/* Nav bar*/
-    /* laptop nav */
-    .topNavHeaderContent { /* the whole nav */
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        width: 100%;
-        margin: 30px auto;
-        padding: 0 30px;
+.topNavHeaderContent { /* the whole nav */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin: 30px auto;
+    padding: 0 30px;
     }
 
-    #laptopLogo {
-        width: 280px;
-    }
+#laptopLogo {
+    width: 280px;
+}
 
-    .navList { /* laptop nav buttons*/
-        display: flex;
-        column-gap: 60px;
-    }
+.nav {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-family: sans-serif;
+    padding: 10px;
+}
 
-    .navItem:first-child { /* space between product and logo*/
-        margin-left: 60px;
-    }
+/* Base nav item */
+.navItem {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+        
+    font-family: 'Akira Expanded', sans-serif;
+    font-size: 20px; 
+    transition: 0.5s; 
+}
 
-    .navLink {
-        font-family: 'Akira Expanded', sans-serif;
-        font-size: 20px; 
-        transition: 0.5s; 
-    }
+.navItem:hover,
+.navItem:focus { /* orange hover effect */
+    color: #FF8228;
+}
 
-    .navLink:hover,
-    .navLink:focus { /* orange hover effect */
-        color: #FF8228;
-    }
+
+/* Container holding all nav items */
+.navGroup {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  transition: all 0.3s ease;
+}
+
+/* When search-container is hovered or focused,
+   trigger expanded state on the whole navGroup */
+.navGroup:has(.searchContainer:hover),
+.navGroup:has(.searchContainer:focus-within) {
+  --search-expanded: 1; /* (Not used here, but helpful for debugging or advanced use) */
+}
+
+/* Search box (starts small, expands on hover/focus) */
+.searchContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: row-reverse; /* Makes input appear on the left */
+  overflow: hidden;
+  width: 120px;            /* Initial width before hover */
+  max-width: 250px;       /* Prevent it from growing endlessly */
+  transition: width 0.4s ease;
+}
+
+/* Text label for the search — visible by default */
+.searchLabel {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Input field — hidden initially */
+.searchInput {
+  width: 0;
+  opacity: 0;
+  padding: 5px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  transition: width 0.4s ease, opacity 0.3s ease;
+  margin-right: 10px; /* Adjust spacing on the new side */
+  margin-left: 0;    /* Remove old spacing */
+
+
+
+font-family: 'Akira Expanded';
+border: 1px solid black;
+border-radius: 4px;  
+text-align: center;
+}
+
+/* Expanded styles when parent detects hover or focus */
+.navGroup:has(.searchContainer:hover) .searchContainer,
+.navGroup:has(.searchContainer:focus-within) .searchContainer {
+  width: 250px; /* Expanded width */
+}
+
+/* Fade out label when expanded 
+.navGroup:has(.search-container:hover) .search-label,
+.navGroup:has(.search-container:focus-within) .search-label {
+  opacity: 0;
+}*/
+
+/* Show and grow input */
+.navGroup:has(.searchContainer:hover) .searchInput,
+.navGroup:has(.searchContainer:focus-within) .searchInput {
+  width: 100%;
+  opacity: 1;
+}
+
+
 
 
     /* mobile nav */
@@ -476,6 +549,10 @@ h2 {
         font-size: 80px;
     }
 
+    .indiviPageTop h2 {
+        font-size: 40px;
+    }
+
     .indiviPageTop h3 {
         font-size: 20px;
     }
@@ -584,7 +661,16 @@ h2 {
         display: none;
     }
 
-    .indiviPageMiddle h2 {
+
+    .indiviPageMiddle {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin: 300px 40px 60px 0px;
+            gap: 40px;
+        }
+
+        .indiviPageMiddle h2 {
         margin-bottom: 0px;
     }
 
@@ -599,6 +685,133 @@ h2 {
         word-wrap: break-word;
         overflow-wrap: break-word;
     }
+
+        .certificate {
+            flex: 1;
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .certificate img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .certificateForm {
+            flex: 1;
+            align-self: flex-end;
+            max-width: 700px;
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            color: black;
+        }
+
+        .certificateForm div {
+            display: flex;
+            flex-direction: column;
+            margin: 10px 40px;
+        }
+
+        .certificateForm h2 {
+            font-size: 32px;
+            margin: 10px 0 10px 0;
+        }
+
+        .certificateForm p {
+            font-size: 16px;
+            max-width: 100%;
+            word-wrap: break-word;
+            word-break: break-word;
+            margin: 10px 0 40px 0;
+        }
+
+        .certificateForm a {
+            color: black;
+            font-size: 12px;
+            text-decoration: underline;
+        }
+
+        .certificateForm form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .certificateForm select {
+            background-color: #FF8228;
+            color: white;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #FF8228;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: 'Akira Expanded';
+            text-align: center;
+
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            background-image: url('../assets/img/scrolldown_icon.png');
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 16px;
+        }
+
+        .chooseLocation,
+        .chooseArea,
+        .nameOnDeed,
+        .downloadPdf {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+
+        .nameOnDeed {
+            font-family: 'Akira Expanded';
+            text-align: center;
+            margin: 10px 0;
+        }
+
+        .nameOnDeed::placeholder {
+            color: #c5c5c5;
+            font-size: 12px;
+            text-align: center;
+            caret-color: black;
+        } 
+
+        .chooseLocation {
+            max-width: 60%;
+        }
+
+        .chooseArea {
+            max-width: 30%;
+        }
+
+        .downloadPdf {
+            max-width: 26%;
+        }
+
+        .certificateForm button {
+            color: white;
+            font-family: 'Akira Expanded';
+            background: #FF8228;
+            border: none;
+            font-size: 20px;
+            cursor: pointer;
+            border: 2px solid #FF8228;
+            border-radius: 12px;
+            padding: 10px;
+            transition: 0.5s;
+        }
+
+
+
+
+
+
+
 
     .indiviPageBottom {
         margin-top: 100px;
@@ -1023,7 +1236,318 @@ h2 {
         cursor: pointer;
         padding: 0 10px;
     }
+
+
+
+    /* mobile indivi*/
+
+    .indiviPageTop, .indiviPageBottom {
+        display: flex;
+        flex-direction: column;
+        min-height: 600px;
+        margin: 20px 30px;
+    }
+
+    .indiviPageTopHeroImg {
+        display: block;
+    }
+
+    .indiviPageTop h2 {
+        font-size: clamp(20px, 2vw + 1rem, 40px);
+        width: 300px; 
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+
+    .indiviPageTop h3 {
+        font-size: clamp(14px, 2vw, 20px);
+    }
+
+    .indiviPageTop p {
+        font-size: clamp(12px, 2vw, 15px);
+    }
+
+    .indiviPageTopInfoTop > * {
+        margin: 20px 0;
+    }
+
+    .indiviPageTopInfoBottom {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .price {
+        display: flex;
+        flex-direction: column;
+        margin-top: 300px;
+    }
+
+    #price {
+        font-size: clamp(1rem, 2vw, 6.5rem);
+        text-align: right;
+    }
+
+
+    .indiviPageTopInfoDown > * {
+        margin: 20px 0;
+    }
+
+    #from {
+        display: block;
+        margin-top: 120px;
+    }
     
+    #locationOffer {
+        font-size: clamp(12px, 2vw, 20px);
+    
+    }
+
+
+    .indiviPageTop img {
+        height: 300px;
+        position: absolute;
+        top: 370px;
+        right: 50px;
+        justify-content: center;
+        align-items: center;
+        animation: spin 300s linear infinite;
+    }
+    
+    #includings {
+        display: flex;
+        flex: row;
+        row-gap: 20px;
+    }
+
+    #includings p {
+        font-size: clamp(8px, 2vw, 15px);
+        color: black;
+        border: 1px solid white;
+        border-radius: 20px;
+        padding: 6px 10px;
+        margin-right: 10px;
+        background-color: white;
+    }
+
+    .readMoreButton {
+        display: none;
+    }
+
+    #readMoreIcon {
+        display: none;
+    }
+
+    #mobileLine,
+    #mobileLine2 {
+        display: block;
+    }
+
+
+    .indiviPageMiddle {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 0 16px;
+        margin: 0 auto;
+        margin: 0 !important;
+        padding-top: 0 !important;
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+    }  
+
+    section:not(.indiviPageMiddle) {
+    overflow: hidden;
+  }
+
+    .certificate {
+        flex: 1;
+        display: flex;
+        justify-content: flex-start;
+    }
+
+    .certificate img {
+        display: none;
+    }
+
+    .certificateForm {
+        flex: 1;
+        align-self: center;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 700px;
+        background-color: white;
+        border-radius: 20px;
+        color: black;
+    }
+
+    .certificateForm div {
+        display: flex;
+        flex-direction: column;
+        margin: 0px 0px;
+    }
+
+    .certificateForm h2 {
+        font-size: clamp(20px, 2vw, 32px);
+        margin: 10px 0 10px 0;
+    }
+
+    .indiviPageTop h3 {
+        font-size: clamp(14px, 2vw, 20px);
+    }
+
+    .certificateForm p {
+        font-size: clamp(10px, 2vw, 16px);
+        max-width: 100%;
+        word-wrap: break-word;
+        word-break: break-word;
+        margin: 10px 0 40px 0;
+    }
+
+    .certificateForm a {
+        color: black;
+        font-size: clamp(8px, 2vw, 12px);
+        text-decoration: underline;
+    }
+
+    .certificateForm form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .certificateForm label {
+        font-size: clamp(12px, 2vw, 15px);
+    }
+
+    .certificateForm select {
+        background-color: #FF8228;
+        color: white;
+        padding: 10px;
+        margin: 10px 0;
+        border: 2px solid #FF8228;
+        border-radius: 8px;
+        font-size: clamp(10px, 2vw, 16px);
+        font-family: 'Akira Expanded';
+        text-align: center;
+
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-image: url('../assets/img/scrolldown_icon.png');
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 16px;
+    }
+
+    .chooseLocation,
+    .chooseArea,
+    .nameOnDeed,
+    .downloadPdf {
+        padding: 10px;
+        font-size: clamp(8px, 2vw, 16px);
+        border-radius: 8px;
+        border: 1px solid #ccc;
+    }
+
+    .nameOnDeed {
+        font-family: 'Akira Expanded';
+        text-align: center;
+        margin: 10px 0;
+    }
+
+    .nameOnDeed::placeholder {
+        color: #c5c5c5;
+        font-size: clamp(8px, 2vw, 16px);
+        text-align: center;
+        caret-color: black;
+    } 
+
+    .chooseLocation {
+        max-width: 70%;
+    }
+
+    .chooseArea {
+        max-width: 50%;
+    }
+
+    .downloadPdf {
+        max-width: 40%;
+    }
+
+    .certificateForm button {
+        color: white;
+        font-family: 'Akira Expanded';
+        background: #FF8228;
+        border: none;
+        font-size: clamp(12px, 2vw, 20px);
+        cursor: pointer;
+        border: 2px solid #FF8228;
+        border-radius: 12px;
+        padding: 10px;
+        transition: 0.5s;
+    }
+
+
+    .indiviPageBottom {
+        margin-top: 60px;
+        margin-bottom: 60px;
+        min-height: auto;
+    }
+
+    .indiviPageBottom img {
+        width: 100%;
+        animation: spin 300s linear infinite;
+    }
+
+    .indiviFeatureProduct {
+        justify-self: center;
+        margin: 20px 0;
+        display: grid;
+        grid-template-columns: repeat(2, 1fr); 
+    }
+
+    .indiviFeatureProduct > :last-child {
+        display: none;
+    }
+
+    .indiviPageBottom button {
+        color: white;
+        font-family: 'Akira Expanded';
+        background: none;
+        border: none;
+        font-size: 12px;
+        cursor: pointer;
+        padding: 6px 10px;
+    }
+
+    .indiviPageBottom h2 {
+        margin: 0px 0;
+        font-size: 20px;
+    }
+
+    .indiviPageBottom button p {
+        margin: 20px auto;
+    }
+
+    .indiviPageBottom > :last-child {
+        color: black;
+        font-family: 'Akira Expanded';
+        background: white;
+        border: none;
+        font-size: 12px;
+        max-width: 400px;
+        align-self: center;
+        cursor: pointer;
+        border: 2px solid white;
+        border-radius: 20px;
+        margin: 0 0;
+        padding: 6px 20px;
+        transition: 0.5s; 
+    }
+
+    /* mobile indivi*/
     *, *::before, *::after {
       box-sizing: border-box;
     }
@@ -1053,7 +1577,7 @@ h2 {
     .footerLeft {
         display: flex;
         flex-direction: column;
-        min-width: unset; /* Remove the min-width */
+        min-width: unset; 
         justify-content: space-between;
     }
     

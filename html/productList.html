@@ -10,25 +10,21 @@
     <header>
         <div class="topNavHeaderContent">
             <a href="../html/home.html">
-                <img src="../assets/img/logo_w.png" alt="logo_w" id="laptopLogo">
+                    <img src="../assets/img/logo_w.png" alt="logo_w" id="laptopLogo">
             </a>
-            <nav> 
-                <ul class="navList">
-                    <li>
-                        <a href="productList.html" class="navLink">Product</a>
-                    </li>
-                    <li>
-                        <a href="about.html" class="navLink">About</a>
-                    </li>
-                    <li>
-                        <a href="search" class="navLink">Search</a>
-                    </li>
-                    <li>
-                        <a href="cart.html" class="navLink">Cart</a>
-                    </li>
-                </ul>
+            <nav class="nav">
+                <div class="navGroup">
+                    <a class="navItem" href="../html/home.html">Product</a>
+                    <a class="navItem" href="../html/about.html">About</a>
+                    <div class="navItem searchContainer">
+                        <span class="searchLabel">Search</span>
+                        <input type="text" class="searchInput" placeholder=". . . moon" />
+                    </div>
+                    <a class="navItem" href="../html/cart.html">Cart</a>
+                </div>
             </nav>
         </div>
+        
         <!-- mobile navigation -->
         <div class="sideNavHeaderContent">
             <div class="mobileNavHamburger">
@@ -62,37 +58,37 @@
         </section>
         <section class="productListProducts">
             <div>
-                <button onclick="location.href='../html/indiviProduct.html'">
+                <button onclick="location.href='../html/moon.html'">
                     <img src="../assets/img/moon.png" alt="">
                     <p>Moon</p>
                 </button>
             </div>
             <div>
-                <button>
-                    <img src="../assets/img/mercury.png" alt="">
-                    <p>mercury</p>
-                </button>
-            </div>
-            <div>
-                <button>
-                    <img src="../assets/img/pluto.png" alt="">
-                    <p>pluto</p>
-                </button>
-            </div>
-            <div>
-                <button onclick="location.href='../html/indiviProduct.html'">
+                <button onclick="location.href='../html/mars.html'">
                     <img src="../assets/img/mars.png" alt="">
                     <p>Mars</p>
                 </button>
             </div>
             <div>
-                <button>
+                <button onclick="location.href='../html/mercury.html'">
+                    <img src="../assets/img/mercury.png" alt="">
+                    <p>mercury</p>
+                </button>
+            </div>
+            <div>
+                <button onclick="location.href='../html/venus.html'">
                     <img src="../assets/img/venus.png" alt="">
                     <p>Venus</p>
                 </button>
             </div>
             <div>
-                <button>
+                <button onclick="location.href='../html/pluto.html'">
+                    <img src="../assets/img/pluto.png" alt="">
+                    <p>pluto</p>
+                </button>
+            </div>
+            <div>
+                <button onclick="location.href='../html/jupiterMoon.html'">
                     <img src="../assets/img/jupitermoon.png" alt="">
                     <p>Jupiter Moon</p>
                 </button>

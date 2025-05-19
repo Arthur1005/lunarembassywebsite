@@ -51,47 +51,111 @@
         </div>
     </header>
     <main>
-        <section class="homePageTop">
-            <div class="homePageTopHeroImg">
-                <h1>buy land on the moon !</h1>
+        <section class="indiviPageTop">
+            <div class="indiviPageTopHeroImg">
+                <div class="indiviPageTopInfoTop">
+                    <h2>buy land on the moon</h2>
+                    <h3>every purchase includes :</h3>
+                    <div id="includings">
+                        <p>Luner deed</p>
+                        <p>lunar map</p>
+                        <p>lunar code</p>
+                    </div>
+                </div>
+    
                 <img src="../assets/img/moon.png" alt="">
-                <h2 id="slogan">look up and say,<br> "I own that."</h2>
-                <button id="sloganButton" onclick="location.href='../html/indiviProduct.html'">Show me !</button>
-            </div>
-            <hr id="mobileLine">
-            <div class="homePageTopIntro">
-                <h2>Own a picec of <br> the moon !</h2>
-                <h3>Give a truly unique gift—an acre of lunar land.</h3>
-                <p>
-                    As seen on TV and featured in 750+ articles across 180 countries, Lunar Embassy is the ONLY legitimate seller of Moon property. Founder Dennis Hope filed the original ownership claim in 1980—no other company has legal rights.
-                    <br>
-                    <br>
-                    Join over 6 million Moon landowners and claim your extraterrestrial real estate today! It’s the perfect out-of-this-world gift for birthdays, weddings, holidays, baby showers, or just because. It’s guaranteed to spark conversation and wonder.
-                </p>
-                <h3>Stake your claim. Look up at the Moon and say, “I own that.”</h3>
-                <button onclick="location.href='../html/about.html'">Read More</button>
-                <hr id="mobileLine2">
+                <div class="indiviPageTopInfoBottom">
+                    <div class="price">
+                        <p id="from">from</p>
+                        <h3 id="price">$34.99</h1>
+                    </div>
+                    <p id="locationOffer">
+                        Choose From spacial locations :<br>
+                        1. ramdam on the moon<br>
+                        2. Chandrayaan-3<br>
+                        3. apollo 15 view lots<br>
+                        4. sea of tranquility <br>
+                        5. moon rabbit
+                    </p>
+                    <div class="readMoreButton" onclick="location.href='../html/indiviProduct.html'">
+                        <button id="readMoreButton">Read more below</button>
+                        <img id="readMoreIcon" src="../assets/img/scrolldown_icon.png" alt="read more icon">
+                    </div>
+                </div>
             </div>
         </section>
-        <section class="homePageBottom">
-            <h2>feature Product</h2>
-            <div class="homeFeatureProduct">
+        <section class="indiviPageMiddle">
+            <div class="certificate">
+                <img src="../assets/img/certificate.png" alt="" id="certificate">
+            </div>
+            <aside class="certificateForm">
                 <div>
-                    <button onclick="location.href='../html/moon.html'">
-                        <img src="../assets/img/moon.png" alt="">
-                        <p>Moon</p>
+                    <h2>certificate</h2>
+                    <p>
+                        Each purchase includes a personalised certificate
+                        and it recorded in our confidential lunar land registry.
+                    </p>
+                </div>
+                <form action="">
+                    <div>
+                        <label for="location">Location Choose</label>
+                        <select name="location" id="" class="chooseLocation">
+                            <option value="">Random</option>
+                            <option value="">Chandrayaan-3</option>
+                            <option value="">apollo 15 view lots</option>
+                            <option value="">Sea of tranquility</option>
+                            <option value="">Moon rabbit</option>
+                        </select>
+                        <a href="https://moon.nasa.gov/observe-the-moon-night/resources/moon-map/#1759536000000::0::" target="_blank">where is that?</a>
+                    </div>
+                    <div>
+                        <label for="area">Area Choose</label>
+                        <select name="area" id="" class="chooseArea">
+                            <option value="">Acre 1</option>
+                            <option value="">Acre 5</option>
+                            <option value="">Acre 8</option>
+                            <option value="">Acre 10</option>
+                            <option value="">Acre 15</option>
+                            <option value="">Acre 20</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="name">Add name on deed [+ $2.50]</label>
+                        <input name="name" type="text" placeholder="Enter your name which will put on deed" class="nameOnDeed">
+                    </div>
+                    <div>
+                        <label for="downloadPdf">download Pdf [+ $10]</label>
+                        <select name="downloadPdf" id="" class="downloadPdf">
+                            <option value="">Yes</option>
+                            <option value="">No</option>
+                        </select>
+                    </div>
+                    <div>
+                        <button>Add to cart</button>
+                    </div>
+                    
+                </form>               
+            </aside>
+        </section>
+        <section class="indiviPageBottom">
+            <h2>more Product</h2>
+            <div class="indiviFeatureProduct">
+                <div>
+                    <button onclick="location.href='../html/mars.html'">
+                        <img src="../assets/img/mars.png" alt="">
+                        <p>Mars</p>
                     </button>
                 </div>
                 <div>
-                    <button>
+                    <button onclick="location.href='../html/mercury.html'">
                         <img src="../assets/img/mercury.png" alt="">
                         <p>mercury</p>
                     </button>
                 </div>
                 <div>
-                    <button>
-                        <img src="../assets/img/pluto.png" alt="">
-                        <p>pluto</p>
+                    <button onclick="location.href='../html/venus.html'">
+                        <img src="../assets/img/venus.png" alt="">
+                        <p>venus</p>
                     </button>
                 </div>
             </div>
