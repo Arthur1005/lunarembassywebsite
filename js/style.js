@@ -2,8 +2,16 @@ document.getElementById("hamburger").onclick = function () {
     document.getElementById("sideNav").classList.add("active");
 };
 
+document.getElementById("cart").onclick = function () {
+    document.getElementById("sideCart").classList.add("active");
+};
+
 sideNavCloseBtn.onclick = () => {
     sideNav.classList.remove('active');
+};
+
+sideCartCloseBtn.onclick = () => {
+    sideCart.classList.remove('active');
 };
 
 document.getElementById("searchIcon").onclick = function () {
@@ -34,3 +42,11 @@ function toggleMobileSearch() {
   }
 
   document.getElementById('searchIcon').onclick = toggleMobileSearch;
+
+
+
+
+
+
+
+
