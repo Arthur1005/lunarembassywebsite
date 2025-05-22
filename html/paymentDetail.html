@@ -10,7 +10,7 @@
     <main class="paymentPage">
         <div class="paymentTop">
             <p>
-                <a href="#" class="return" id="paymentReturnBtn">return</a>
+                <a href="#" class="paymentReturn" id="paymentReturnBtn">return</a>
             </p>
             <h1>Payment Details</h1>
         </div>
@@ -27,15 +27,17 @@
 
             <div class="expAndCvv">
                 <div class="expiry">
-                    <label for="expiry">Expiry Date (MM/YY)</label>
-                    <input type="text" id="expiry" name="expiry" placeholder="MM/YY" required />
+                    <label for="expiry">Expiry Date ( MM / YY )</label>
+                    <div class="expiryMonthandYear">
+                        <input type="text" id="expiryMonth" name="expiryMonth" placeholder="MM" required/>
+                        <input type="text" id="expiryYear" name="expiryYear" placeholder="YYYY" required/>
+                    </div>
                 </div>
                 <div class="cvv">
                     <label for="cvv">CVV / CVC</label>
-                    <input type="text" id="cvv" name="cvv" inputmode="numeric" pattern="\d{3,4}" required />
+                    <input type="text" id="cvv" name="cvv" placeholder="xxx" inputmode="numeric" pattern="\d{3,4}" required/>
                 </div>
             </div>
-            <hr/>
 
             <h2>Shipping Information</h2>
             
@@ -62,23 +64,9 @@
 
             <label for="country">Country</label>
             <input type="text" id="country" name="country" required />
-
-        
         </form>
-
-
-
-
-
     </main>
 
-
-    <aside class="sideNav" id="sideNav">
-        <a href="#" class="close" id="sideNavCloseBtn">Close</a>
-        <a href="home.html" class="sideNavLink">Home</a>
-        <a href="productList.html" class="sideNavLink">Product</a>
-        <a href="about.html" class="sideNavLink">About</a>
-    </aside>
     <aside class="sidePayment" id="sideCart">
         <div class="cartTop">
             <h1>
@@ -129,9 +117,9 @@
                     </div>
                 </div>
             </div>
-            <button class="cartCheckout">
+            <button class="cartCheckout" id="paymentDetailbtn">
                 <div class="cartCheckoutWord">
-                    <h1>Checkout</h1>
+                    <h1>Proceed Payment</h1>
                     <h1>&#8226;</h1>
                     <h1>Price</h1>
                 </div>    

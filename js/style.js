@@ -44,9 +44,26 @@ function toggleMobileSearch() {
   document.getElementById('searchIcon').onclick = toggleMobileSearch;
 
 
+/* cart to payment detail */
+  document.getElementById('checkoutBtn').addEventListener('click', function () {
+    window.location.href = 'paymentDetail.html';
+  });
 
+/* payment detail to confirmation */
+document.getElementById('paymentDetailbtn').addEventListener('click', function () {
+  window.location.href = 'confirmationPage.html';
+});
 
+/* payment detail to confirmation */
+document.getElementById('homePageBtn').addEventListener('click', function () {
+  window.location.href = 'home.html';
+});
 
-
+const returnBtn = document.getElementById('paymentReturnBtn');
+if (returnBtn) {
+    returnBtn.addEventListener('click', () => {
+    window.history.back();
+  });
+}
 
 
