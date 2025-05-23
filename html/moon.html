@@ -20,7 +20,7 @@
                         <span class="searchLabel">Search</span>
                         <input type="text" class="searchInput" placeholder=". . . moon" />
                     </div>
-                    <a class="navItem" href="../html/cart.html">Cart</a>
+                    <a class="navItem" id="cart" href="#">Cart</a>
                 </div>
             </nav>
         </div>
@@ -57,7 +57,7 @@
                     <h2>buy land on the moon</h2>
                     <h3>every purchase includes :</h3>
                     <div id="includings">
-                        <p>Luner deed</p>
+                        <p>Lunar deed</p>
                         <p>lunar map</p>
                         <p>lunar code</p>
                     </div>
@@ -67,10 +67,10 @@
                 <div class="indiviPageTopInfoBottom">
                     <div class="price">
                         <p id="from">from</p>
-                        <h3 id="price">$34.99</h1>
+                        <h3 id="price">$34.99</h3>
                     </div>
                     <p id="locationOffer">
-                        Choose From spacial locations :<br>
+                        Choose From special locations :<br>
                         1. ramdam on the moon<br>
                         2. Chandrayaan-3<br>
                         3. apollo 15 view lots<br>
@@ -96,42 +96,42 @@
                         and it recorded in our confidential lunar land registry.
                     </p>
                 </div>
-                <form action="">
+                <form action="" class="productFormm" id="productFormm">
                     <div>
                         <label for="location">Location Choose</label>
-                        <select name="location" id="" class="chooseLocation">
-                            <option value="">Random</option>
-                            <option value="">Chandrayaan-3</option>
-                            <option value="">apollo 15 view lots</option>
-                            <option value="">Sea of tranquility</option>
-                            <option value="">Moon rabbit</option>
+                        <select name="location" id="chooseLocation" class="chooseLocation">
+                            <option value="Random">Random</option>
+                            <option value="Chandrayaan-3">Chandrayaan-3</option>
+                            <option value="apollo 15 view lots">apollo 15 view lots</option>
+                            <option value="Sea of tranquility">Sea of tranquility</option>
+                            <option value="Moon rabbit">Moon rabbit</option>
                         </select>
                         <a href="https://moon.nasa.gov/observe-the-moon-night/resources/moon-map/#1759536000000::0::" target="_blank">where is that?</a>
                     </div>
                     <div>
                         <label for="area">Area Choose</label>
-                        <select name="area" id="" class="chooseArea">
-                            <option value="">Acre 1</option>
-                            <option value="">Acre 5</option>
-                            <option value="">Acre 8</option>
-                            <option value="">Acre 10</option>
-                            <option value="">Acre 15</option>
-                            <option value="">Acre 20</option>
+                        <select name="area" id="chooseArea" class="chooseArea">
+                            <option value="Acre 1">Acre 1</option>
+                            <option value="Acre 5">Acre 5</option>
+                            <option value="Acre 8">Acre 8</option>
+                            <option value="Acre 10">Acre 10</option>
+                            <option value="Acre 15">Acre 15</option>
+                            <option value="Acre 20">Acre 20</option>
                         </select>
                     </div>
                     <div>
                         <label for="name">Add name on deed [+ $2.50]</label>
-                        <input name="name" type="text" placeholder="Enter your name which will put on deed" class="nameOnDeed">
+                        <input name="name" type="text" placeholder="Enter your name which will be printed on deed" id="nameOnDeed" class="nameOnDeed">
                     </div>
                     <div>
                         <label for="downloadPdf">download Pdf [+ $10]</label>
-                        <select name="downloadPdf" id="" class="downloadPdf">
-                            <option value="">Yes</option>
-                            <option value="">No</option>
+                        <select name="downloadPdf" id="downloadPdf" class="downloadPdf">
+                            <option value="yes">Yes</option>
+                            <option value="no">No</option>
                         </select>
                     </div>
                     <div>
-                        <button>Add to cart</button>
+                        <button type="submit">Add to cart</button>
                     </div>
                     
                 </form>               
@@ -168,6 +168,35 @@
         <a href="home.html" class="sideNavLink">Home</a>
         <a href="productList.html" class="sideNavLink">Product</a>
         <a href="about.html" class="sideNavLink">About</a>
+    </aside>
+    <aside class="sideCart" id="sideCart">
+        <div class="cartTop">
+            <h1>cart</h1>
+            <p><a href="#" class="close" id="sideCartCloseBtn">Close</a></p>
+        </div>
+
+        <div id="cartContent" class="cartContent">
+            <p id="emptyMessage" class="emptyMessage">Your cart is empty.</p>
+
+            <div id="cartItems" class="cartItem" style="display: none;">
+            <!-- Items get inserted here -->
+            </div>
+
+            <div id="cartBottom" class="cartBottom" style="display: none;">
+            
+            </div>
+
+            <!-- Put this in your main HTML somewhere outside #cartItems -->
+            <button class="cartCheckout" id="checkoutBtn">
+            <div class="cartCheckoutWord">
+                <h1>Checkout</h1>
+                <h1>&#8226;</h1>
+                <h1 id="finalTotalPrice">$0.00</h1>
+            </div>    
+            </button>
+
+        </div>
+        </div>
     </aside>
     <footer>
         <div class="footerTop">
