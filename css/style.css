@@ -157,6 +157,13 @@ text-align: center;
   opacity: 1;
 }
 
+#cartCount {
+    position: absolute;
+    top: 40px;
+    right: 20px;
+    font-family: 'Akira Expanded';
+}
+
 /* mobile nav */
     .sideNavHeaderContent { /* all items in header */
         display: none;
@@ -411,6 +418,18 @@ text-align: center;
         text-underline-offset: 4px;
     }
 
+    #emptyMessage {
+        margin-bottom: 400px;
+    }
+
+    #clearCartBtn {
+        position: absolute;
+        top: 80px;
+        margin-left: 40px;
+        background: unset;
+        padding: 10px;
+    }
+
     .cartTop {
         flex: 0 0 auto;
         display: flex;
@@ -440,6 +459,7 @@ text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
+        margin-bottom: 40px;
     }
 
     .itemImg {
@@ -506,14 +526,14 @@ text-align: center;
         padding-bottom: 60px;
     }
 
-    .cartComfirmationInfo {
+    .cartConfirmationInfo {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         padding: 20px 40px;
     }
 
-    .cartComfirmationInfo.location {
+    .cartConfirmationInfo.location {
         padding: 0 40px;
         padding-top: 40px;
     }

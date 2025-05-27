@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lunar Embassy</title>
     <link rel="stylesheet" href="../css/style.css">
+    <script src="../js/paymentCart.js" defer></script>
+    <script src="../js/style.js" defer></script>
 </head>
 <body>
     <main class="paymentPage">
@@ -67,7 +69,7 @@
         </form>
     </main>
 
-    <aside class="sideCart" id="sideCart">
+    <aside class="sideCart active" id="sideCart">
         <div class="cartTop">
             <h1>cart</h1>
             <p><a href="#" class="close" id="sideCartCloseBtn">Close</a></p>
@@ -76,15 +78,17 @@
         <div id="cartContent" class="cartContent">
             <p id="emptyMessage" class="emptyMessage">Your cart is empty.</p>
 
+
             <div id="cartItems" class="cartItem" style="display: none;">
             <!-- Items get inserted here -->
             </div>
 
             <div id="cartBottom" class="cartBottom" style="display: none;">
-            
+        
             </div>
+            
 
-            <button class="cartCheckout" id="checkoutBtn">
+            <button class="cartCheckout" id="checkoutBtn" onclick="goToPaymentPage()">
             <div class="cartCheckoutWord">
                 <h1>Checkout</h1>
                 <h1>&#8226;</h1>
@@ -95,6 +99,5 @@
         </div>
         </div>
     </aside>
-    <script src="../js/style.js"></script>
 </body>
 </html>

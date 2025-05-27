@@ -24,6 +24,8 @@
                 </div>
             </nav>
         </div>
+        
+        <span id="cartCount"></span>
 
         <!-- mobile navigation -->
         <div class="sideNavHeaderContent">
@@ -131,9 +133,8 @@
                         </select>
                     </div>
                     <div>
-                        <button type="submit">Add to cart</button>
+                        <button type="submit" id="addToCartBtn">Add to cart</button>
                     </div>
-                    
                 </form>               
             </aside>
         </section>
@@ -174,9 +175,11 @@
             <h1>cart</h1>
             <p><a href="#" class="close" id="sideCartCloseBtn">Close</a></p>
         </div>
+        <div><button id="clearCartBtn">Clear Cart</button></div>
 
         <div id="cartContent" class="cartContent">
             <p id="emptyMessage" class="emptyMessage">Your cart is empty.</p>
+
 
             <div id="cartItems" class="cartItem" style="display: none;">
             <!-- Items get inserted here -->
@@ -186,7 +189,7 @@
             
             </div>
 
-            <button class="cartCheckout" id="checkoutBtn">
+            <button class="cartCheckout" id="checkoutBtn" onclick="goToPaymentPage()">
             <div class="cartCheckoutWord">
                 <h1>Checkout</h1>
                 <h1>&#8226;</h1>

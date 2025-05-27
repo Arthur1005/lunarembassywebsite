@@ -1,149 +1,89 @@
-document.getElementById("hamburger").onclick = function () {
-    document.getElementById("sideNav").classList.add("active");
-};
-
-document.getElementById("cart").onclick = function () {
-    document.getElementById("sideCart").classList.add("active");
-};
-
-sideNavCloseBtn.onclick = () => {
-    sideNav.classList.remove('active');
-};
-
-sideCartCloseBtn.onclick = () => {
-    sideCart.classList.remove('active');
-};
-
-document.getElementById("searchIcon").onclick = function () {
-    document.getElementById("mobileSearchSectionBG").classList.add("active");
-};
-
-function toggleMobileSearch() {
-    const dropdown = document.getElementById('mobileSearchSectionBG');
-    const searchIcon = document.getElementById('searchIcon');
-    const cartIcon = document.getElementById('cartIcon');
-    const mobileLogoPng = document.getElementById('mobileLogoPng');
-    const hamburgerIcon = document.getElementById('hamburger');
-    const searchDropped = dropdown.classList.contains('active');
-  
-    dropdown.classList.toggle('active');
-  
-    if (searchDropped) {
-        searchIcon.classList.remove('invert');
-        cartIcon.classList.remove('invert');
-        mobileLogoPng.classList.remove('invert');
-        hamburgerIcon.classList.remove('invert');
-    } else {
-        searchIcon.classList.add('invert');
-        cartIcon.classList.add('invert');
-        mobileLogoPng.classList.add('invert');
-        hamburgerIcon.classList.add('invert');
-    }
-  }
-
-  document.getElementById('searchIcon').onclick = toggleMobileSearch;
-
-
-/* cart to payment detail */
-const checkoutBtn = document.getElementById('checkoutBtn');
-  if (checkoutBtn) {
-    checkoutBtn.addEventListener('click', () => {
-      window.location.href = 'paymentDetail.html';
-    });
-}
-
-/* payment detail to confirmation */
-const paymentDetailBtn = document.getElementById('paymentDetailbtn');
-  if (checkoutBtn) {
-    checkoutBtn.addEventListener('click', () => {
-      window.location.href = 'confirmationPage.html';
-    });
-}
-
-/* payment detail to confirmation */
-const backToHomePageBtn = document.getElementById('homePageBtn');
-  if (checkoutBtn) {
-    checkoutBtn.addEventListener('click', () => {
-      window.location.href = 'home.html';
-    });
-}
-
-
-
-const returnBtn = document.getElementById('paymentReturnBtn');
-if (returnBtn) {
-    returnBtn.addEventListener('click', () => {
-    window.history.back();
-  });
-}
-
+let cartItems = [];
+let cartItemPrices = [];
+let currentItemIndex = 0;
 
 const basePrice = 34.99;
-
 const locationPrices = {
   "Random": 0,
   "Chandrayaan-3": 10,
-  "apollo 15 view lots": 10,
-  "Sea of tranquility": 15,
-  "Moon rabbit": 20
+  "apollo 15 view lots": 15,
+  "Sea of tranquility": 20,
+  "Moon rabbit": 25
 };
-
 const areaPrices = {
-  "Acre 1": 0,
+  "Acre 1": 5,
   "Acre 5": 10,
   "Acre 8": 15,
   "Acre 10": 20,
   "Acre 15": 25,
   "Acre 20": 30
 };
-
 const addOnPrices = {
-  nameOnDeed: 2.5,
-  downloadPdf: 10
+  nameOnDeed: 2.50,
+  downloadPdf: 10.00
 };
 
 
-let cartItems = [];
-let cartItemPrices = [];
-let currentItemIndex = 0;
-
-function addToCart(itemHTML, itemPrice) {
-  const container = document.createElement("div");
-  container.classList.add("cartItemSlide");
-  container.innerHTML = itemHTML;
-
-  cartItems.push(container);
-  cartItemPrices.push(itemPrice);
-
-  const cartItemsDiv = document.getElementById("cartItems");
-  if (!cartItemsDiv) {
-    console.error("No #cartItems container found!");
-    return;
+function toggleMobileSearch() {
+  const mobileSearchBG = document.getElementById('mobileSearchSectionBG');
+  if (mobileSearchBG) {
+    mobileSearchBG.classList.toggle('active');
   }
-  cartItemsDiv.appendChild(container);
-
-  currentItemIndex = 0;
-  showCartItem(currentItemIndex);
-
-  document.getElementById("emptyMessage").style.display = "none";
-  cartItemsDiv.style.display = "block";
-  document.getElementById("cartBottom").style.display = "block";
-
-  updateCheckoutPrice();
 }
 
-function showCartItem(index) {
-  const allSlides = document.querySelectorAll("#cartItems .cartItemSlide");
 
-  allSlides.forEach((el, i) => {
-    el.classList.toggle("active", i === index);
 
-    const leftBtn = el.querySelector(".prevItemBtn");
-    const rightBtn = el.querySelector(".nextItemBtn");
+function loadCartStore() {
+  const saved = localStorage.getItem("cartStore");
+  return saved ? JSON.parse(saved) : { html: [], prices: [] };
+}
 
-    if (leftBtn) leftBtn.style.display = index > 0 ? "inline-block" : "none";
-    if (rightBtn) rightBtn.style.display = index < cartItems.length - 1 ? "inline-block" : "none";
-  });
+function saveCartStore(store) {
+  localStorage.setItem("cartStore", JSON.stringify(store));
+}
+
+function updateCartCount() {
+  const count = cartItems.length;
+  const countEl = document.getElementById("cartCount");
+  if (!countEl) return;
+
+  if (count === 0) {
+    countEl.style.display = "none";
+    countEl.textContent = "";
+  } else {
+    countEl.style.display = "inline";
+    countEl.textContent = `${count}`;
+  }
+}
+
+function clearCartStore() {
+  localStorage.removeItem("cartStore");
+}
+
+function clearCart() {
+  clearCartStore();
+
+  const cartItemsDiv = document.getElementById('cartItems');
+  const cartBottom = document.getElementById('cartBottom');
+  const emptyMessage = document.getElementById('emptyMessage');
+  const finalTotal = document.getElementById('finalTotalPrice');
+  const clearBtn = document.getElementById('clearCartBtn');
+
+  if (cartItemsDiv) {
+    cartItemsDiv.innerHTML = '';
+    cartItemsDiv.style.display = 'none';
+  }
+  if (cartBottom) cartBottom.style.display = 'none';
+  if (emptyMessage) emptyMessage.style.display = 'block';
+  if (finalTotal) finalTotal.textContent = '$0.00';
+  if (clearBtn) clearBtn.style.display = 'none';
+
+
+  cartItems = [];
+  cartItemPrices = [];
+  currentItemIndex = 0;
+
+  updateCartCount();
 }
 
 function updateCheckoutPrice() {
@@ -152,14 +92,24 @@ function updateCheckoutPrice() {
   if (finalPriceEl) finalPriceEl.textContent = `$${total}`;
 }
 
+function showCartItem(index) {
+  const allSlides = document.querySelectorAll("#cartItems .cartItemSlide");
+  allSlides.forEach((el, i) => {
+    el.classList.toggle("active", i === index);
+    const leftBtn = el.querySelector(".prevItemBtn");
+    const rightBtn = el.querySelector(".nextItemBtn");
+    if (leftBtn) leftBtn.style.display = index > 0 ? "inline-block" : "none";
+    if (rightBtn) rightBtn.style.display = index < cartItems.length - 1 ? "inline-block" : "none";
+  });
+}
 
-// check item buttons
 function showNextItem() {
   if (currentItemIndex < cartItems.length - 1) {
     currentItemIndex++;
     showCartItem(currentItemIndex);
   }
 }
+
 function showPrevItem() {
   if (currentItemIndex > 0) {
     currentItemIndex--;
@@ -167,113 +117,200 @@ function showPrevItem() {
   }
 }
 
+function addToCart(itemHTML, itemPrice, save = true) {
 
-
-// add to cart
-function addToCart(itemHTML, itemPrice) {
   const container = document.createElement("div");
   container.classList.add("cartItemSlide");
   container.innerHTML = itemHTML;
 
+  const prevBtn = container.querySelector(".prevItemBtn");
+  if (prevBtn) prevBtn.addEventListener("click", showPrevItem);
+  const nextBtn = container.querySelector(".nextItemBtn");
+  if (nextBtn) nextBtn.addEventListener("click", showNextItem);
+
   cartItems.push(container);
   cartItemPrices.push(itemPrice);
-
   const cartItemsDiv = document.getElementById("cartItems");
-  cartItemsDiv.appendChild(container);
-
-  currentItemIndex = 0;
+  if (cartItemsDiv) {
+    cartItemsDiv.appendChild(container);
+  }
+  currentItemIndex = cartItems.length - 1;
   showCartItem(currentItemIndex);
 
-  document.getElementById("emptyMessage").style.display = "none";
-  cartItemsDiv.style.display = "block";
-  document.getElementById("cartBottom").style.display = "block";
+  const emptyMessage = document.getElementById("emptyMessage");
+  if (emptyMessage) emptyMessage.style.display = "none";
+  if (cartItemsDiv) cartItemsDiv.style.display = "block";
+  const cartBottom = document.getElementById("cartBottom");
+  if (cartBottom) cartBottom.style.display = "block";
+  const clearBtn = document.getElementById("clearCartBtn");
+  if (clearBtn) clearBtn.style.display = "inline-block";
+
+
 
   updateCheckoutPrice();
+  updateCartCount();
 
   const sideCart = document.getElementById("sideCart");
-  if (!sideCart.classList.contains("active")) {
+ if (save) {
+  const sideCart = document.getElementById("sideCart");
+  if (sideCart && !sideCart.classList.contains("active")) {
     sideCart.classList.add("active");
   }
 }
 
 
-document.getElementById("productFormm").addEventListener("submit", function (e) {
-  e.preventDefault();
+  if (save) {
+    const store = loadCartStore();
+    store.html.push(itemHTML);
+    store.prices.push(itemPrice);
+    saveCartStore(store);
+  }
+}
 
-  const location = document.getElementById("chooseLocation").value;
-  const area = document.getElementById("chooseArea").value;
-  const name = document.getElementById("nameOnDeed").value || "N/A";
-  const pdf = document.getElementById("downloadPdf").checked;
+window.addEventListener('DOMContentLoaded', () => {
+  if (!localStorage.getItem('cartInitialized')) {
+    clearCartStore();
+    localStorage.setItem('cartInitialized', '1');
+  }
 
-  const locationPrice = locationPrices[location] || 0;
-  const areaPrice = areaPrices[area] || 0;
-  const namePrice = name !== "N/A" ? addOnPrices.nameOnDeed : 0;
-  const pdfPrice = pdf ? addOnPrices.downloadPdf : 0;
+  const clearBtn = document.getElementById('clearCartBtn');
+  if (clearBtn) {
+    clearBtn.addEventListener('click', clearCart);
+  }
 
-  const totalPriceNum = basePrice + locationPrice + areaPrice + namePrice + pdfPrice;
-  const totalPrice = totalPriceNum.toFixed(2);
+  const store = loadCartStore();
+  if (store.html && store.html.length > 0) {
+    const emptyMessage = document.getElementById('emptyMessage');
+    if (emptyMessage) emptyMessage.style.display = 'none';
 
+    const cartItemsDiv = document.getElementById('cartItems');
+    if (cartItemsDiv) cartItemsDiv.style.display = 'block';
 
-  const itemHTML = `
-    <div class="cartItem">
-      <div class="cartItemDisplay">
-        <img src="../assets/img/moon.png" alt="" class="itemImg" />
-        <p class="itemLabel">moon</p>
+    const cartBottom = document.getElementById('cartBottom');
+    if (cartBottom) cartBottom.style.display = 'block';
 
-        <!-- Correctly placed buttons -->
-        <button class="prevItemBtn" onclick="showPrevItem()">
-          <img src="../assets/img/scrolldown_icon_b.png" alt="Previous" />
-        </button>
+    if (clearBtn) clearBtn.style.display = 'inline-block';
 
-        <button class="nextItemBtn" onclick="showNextItem()">
-          <img src="../assets/img/scrolldown_icon_b.png" alt="Next" />
-        </button>
-      </div>
-    </div>
+    store.html.forEach((html, i) => {
+      addToCart(html, store.prices[i], false);
+    });
+  } else {
+    if (clearBtn) clearBtn.style.display = 'none';
+  }
 
-    <div class="cartBottom">
-      <div class="cartBottomInfo">
-        <div>
-          <div class="cartComfirmationLocation">
-            <div class="cartComfirmationInfo location">
-              <p>Location : ${location}</p>
-              <p>$${locationPrice.toFixed(2)}</p>
-            </div>
-            <div id="mapLink">
-              <a href="https://${location.toLowerCase().replace(/\s+/g, "")}.nasa.gov" target="_blank">where is that?</a>
-            </div>
-          </div>
+  const sideNavCloseBtn = document.getElementById('sideNavCloseBtn');
+  const sideCartCloseBtn = document.getElementById('sideCartCloseBtn');
+  const sideNav = document.getElementById('sideNav');
+  const sideCart = document.getElementById('sideCart');
 
-          <div class="cartComfirmationInfo">
-            <p>Area : ${area}</p>
-            <p>$${areaPrice.toFixed(2)}</p>
-          </div>
+  const hamburger = document.getElementById("hamburger");
+  if (hamburger) {
+    hamburger.onclick = function () {
+      if (sideNav) sideNav.classList.add("active");
+    };
+  }
 
-          <div class="cartComfirmationInfo">
-            <p>Name on deed : ${name}</p>
-            <p>$${namePrice.toFixed(2)}</p>
-          </div>
+  const cartBtn = document.getElementById("cart");
+  if (cartBtn) {
+    cartBtn.onclick = function () {
+      if (sideCart) sideCart.classList.add("active");
+    };
+  }
 
-          <div class="cartComfirmationInfo">
-            <p>Download PDF : ${pdf ? "Yes" : "No"}</p>
-            <p>$${pdfPrice.toFixed(2)}</p>
-          </div>
+  if (sideNavCloseBtn && sideNav) {
+    sideNavCloseBtn.onclick = () => {
+      sideNav.classList.remove('active');
+    };
+  }
 
-          <hr id="totalPriceLine">
-          <div class="totalPrice">
-            <p>Total</p>
-            <h1>$${totalPrice}</h1>
+  if (sideCartCloseBtn && sideCart) {
+    sideCartCloseBtn.onclick = () => {
+      sideCart.classList.remove('active');
+    };
+  }
+
+  const searchIcon = document.getElementById("searchIcon");
+  if (searchIcon) {
+    searchIcon.onclick = toggleMobileSearch;
+  }
+
+  const productForm = document.getElementById("productFormm");
+  if (productForm) { 
+    productForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      const location = document.getElementById("chooseLocation").value;
+      const area = document.getElementById("chooseArea").value;
+      const name = document.getElementById("nameOnDeed").value || "N/A";
+      const pdf = document.getElementById("downloadPdf").checked;
+
+      const locationPrice = locationPrices[location] || 0;
+      const areaPrice = areaPrices[area] || 0;
+      const namePrice = name !== "N/A" ? addOnPrices.nameOnDeed : 0;
+      const pdfPrice = pdf ? addOnPrices.downloadPdf : 0;
+
+      const totalPriceNum = basePrice + locationPrice + areaPrice + namePrice + pdfPrice;
+
+      const itemHTML = `
+        <div class="cartItem">
+          <div class="cartItemDisplay">
+            <img src="../assets/img/moon.png" alt="" class="itemImg" />
+            <p class="itemLabel">moon</p>
+
+            <button class="prevItemBtn">
+              <img src="../assets/img/scrolldown_icon_b.png" alt="Previous" />
+            </button>
+
+            <button class="nextItemBtn">
+              <img src="../assets/img/scrolldown_icon_b.png" alt="Next" />
+            </button>
           </div>
         </div>
-      </div>
-    </div>
-  `;
-  
-  addToCart(itemHTML, totalPriceNum);
+
+        <div class="cartBottom">
+          <div class="cartBottomInfo">
+            <div>
+              <div class="cartConfirmationLocation">
+                <div class="cartConfirmationInfo location">
+                  <p>Location : ${location}</p>
+                  <p>$${locationPrice.toFixed(2)}</p>
+                </div>
+                <div id="mapLink">
+                  <a href="https://${location.toLowerCase().replace(/\s+/g, "")}.nasa.gov" target="_blank">where is that?</a>
+                </div>
+              </div>
+
+              <div class="cartConfirmationInfo">
+                <p>Area : ${area}</p>
+                <p>$${areaPrice.toFixed(2)}</p>
+              </div>
+
+              <div class="cartConfirmationInfo">
+                <p>Name on deed : ${name}</p>
+                <p>$${namePrice.toFixed(2)}</p>
+              </div>
+
+              <div class="cartConfirmationInfo">
+                <p>Download PDF : ${pdf ? "Yes" : "No"}</p>
+                <p>$${pdfPrice.toFixed(2)}</p>
+              </div>
+
+              <hr id="totalPriceLine">
+              <div class="totalPrice">
+                <p>Total</p>
+                <h1>$${totalPriceNum.toFixed(2)}</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      `;
+      addToCart(itemHTML, totalPriceNum);
+    });
+  }
+     
 });
 
 
-/* Navigation buttons */
 const checkoutButton = document.getElementById('checkoutBtn');
 if (checkoutButton) {
   checkoutButton.addEventListener('click', () => {
@@ -302,5 +339,3 @@ if (returnButton) {
   });
 }
 
-
-window.addEventListener("DOMContentLoaded", loadCartFromLocalStorage);
