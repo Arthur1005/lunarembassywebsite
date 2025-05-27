@@ -91,7 +91,32 @@ window.addEventListener('DOMContentLoaded', () => {
       closeBtn.style.display = "none";
     }
 
-
+    const proceedBtn = document.getElementById("checkoutBtn");
+    if (proceedBtn) {
+      proceedBtn.addEventListener("click", () => {
+        window.location.href = "confirmationPage.html";
+      });
+    }
 
   }
+});
+
+
+
+/* no finished yet*/
+window.addEventListener('DOMContentLoaded', () => {
+  const checkoutForm = document.getElementById('checkoutForm');
+  const submitBtn = document.getElementById('checkoutBtn');
+
+  function toggleSubmitButton() {
+    if (checkoutForm.checkValidity()) {
+      submitBtn.disabled = false;
+    } else {
+      submitBtn.disabled = true;
+    }
+  }
+
+  checkoutForm.addEventListener('input', toggleSubmitButton);
+
+  toggleSubmitButton();
 });

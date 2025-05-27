@@ -339,3 +339,16 @@ if (returnButton) {
   });
 }
 
+
+document.addEventListener("DOMContentLoaded", function () {
+    const cartData = JSON.parse(localStorage.getItem("cartStore"));
+
+    if (cartData && cartData.cartItems && cartData.cartItems.length > 0) {
+        const currentItem = cartData.cartItems[0]; // or track an index if navigating multiple
+
+        document.getElementById("confirmLocation").innerText = currentItem.location || "N/A";
+        document.getElementById("confirmArea").innerText = currentItem.area || "N/A";
+        document.getElementById("confirmName").innerText = currentItem.name || "N/A";
+        document.getElementById("confirmCode").innerText = currentItem.code || "N/A";
+    }
+});
