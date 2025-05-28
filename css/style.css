@@ -1303,6 +1303,44 @@ text-align: center;
 
 
 
+/* Search result */
+    .result {
+        margin-left: 60px;
+        margin-right: 40px;
+        margin-bottom: 40px;
+    }
+
+    #searchResults {
+        font-size: 40px;
+        justify-self: center;
+        align-self: center;
+        margin: 40px 0;
+    }
+
+    .EachResultContainer {
+        padding:  30px 20px;
+        border: solid 1px white;
+        border-radius: 20px;
+        background-color: white;
+        color: black;
+        margin: 10px 0;
+    }
+
+    .EachResultContainer > * {
+       margin: 0 20px;
+    }
+
+    .EachResultContainer > h1 {
+       margin-bottom: 10px;
+    }
+
+
+
+
+
+
+
+
 /* footer */
     footer {
         font-family: 'Akira Expanded';

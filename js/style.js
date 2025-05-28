@@ -352,3 +352,27 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("confirmCode").innerText = currentItem.code || "N/A";
     }
 });
+
+
+document.getElementById("searchBox").addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    const query = this.value.trim();
+    if (query) {
+      window.location.href = `searchResult.html?q=${encodeURIComponent(query)}`;
+    }
+  }
+});
+
+
+document.getElementById("searchBox").addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    const query = this.value.trim();
+    if (query) {
+      window.location.href = `searchResult.html?q=${encodeURIComponent(query)}`;
+    }
+  }
+});
+
+
+
+
