@@ -210,12 +210,24 @@ window.addEventListener('DOMContentLoaded', () => {
     };
   }
 
+// mark for my self
+
   const cartBtn = document.getElementById("cart");
+  const cartMoBtn = document.getElementById("cartIcon") ;
+
   if (cartBtn) {
     cartBtn.onclick = function () {
       if (sideCart) sideCart.classList.add("active");
     };
   }
+
+  if (cartMoBtn) {
+  cartMoBtn.addEventListener("click", function () {
+    if (sideCart) {
+      sideCart.classList.add("active");
+    }
+  });
+}
 
   if (sideNavCloseBtn && sideNav) {
     sideNavCloseBtn.onclick = () => {
