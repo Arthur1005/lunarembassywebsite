@@ -84,6 +84,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const cartTitle = document.querySelector(".cartTop h1");
     if (cartTitle) {
       cartTitle.textContent = "Your Item";
+      cartTitle.id = "yourItem";
     }
 
     const closeBtn = document.getElementById("sideCartCloseBtn");
@@ -119,4 +120,36 @@ window.addEventListener('DOMContentLoaded', () => {
   checkoutForm.addEventListener('input', toggleSubmitButton);
 
   toggleSubmitButton();
+});
+
+
+
+window.addEventListener("DOMContentLoaded", () => {
+  // After loading cart HTML from localStorage
+  const specialBtns = document.querySelectorAll(".only-show-on-second");
+  specialBtns.forEach(el => {
+    el.style.display = "flex";
+    el.style.gap = "8px";
+    el.style.flexDirection = "row";
+    el.style.justifyContent = "center";
+    el.style.marginTop = "16px";
+  });
+
+  const tryBtns = document.querySelectorAll(".paymentPageMobile");
+  const Btn1 = document.getElementById("Btn1");
+  const cartBottomInfo = document.querySelector(".cartBottomInfo");
+
+
+  function showform() {
+      tryBtns.forEach(el => {
+        el.style.display = "flex";
+      });
+
+
+      cartBottomInfo.style.display = "ok"; // to be changed
+  };
+
+  if (Btn1) Btn1.addEventListener("click", showform);
+  
+
 });

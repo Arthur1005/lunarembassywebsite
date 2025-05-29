@@ -280,6 +280,71 @@ window.addEventListener('DOMContentLoaded', () => {
         </div>
 
         <div class="cartBottom">
+          <div class="hidden-cart-buttons only-show-on-second">
+            <button id="Btn1">Button 1</button>
+            <button id="Btn2">Button 2</button>
+          </div>
+
+          <div class="paymentPageMobile">
+        <div class="paymentTopMobile">
+            <p>
+                <a href="#" class="paymentReturnMobile" id="paymentReturnBtnMobile">return</a>
+            </p>
+            <h1>Payment Details</h1>
+        </div>
+        
+        <form id="checkoutFormMobile" class="paymentFormMobile">
+
+            <h2>Payment Details *</h2>
+
+            <label for="cardName">Cardholder Name</label>
+            <input type="text" id="cardName" name="cardName" required />
+
+            <label for="cardNumber">Card Number </label>
+            <input type="text" id="cardNumber" name="cardNumber" inputmode="numeric" pattern="[0-9\s]{13,19}" required />
+
+            <div class="expAndCvvMobile">
+                <div class="expiryMobile">
+                    <label for="expiry">Expiry Date ( MM / YY )</label>
+                    <div class="expiryMonthandYearMobile">
+                        <input type="text" id="expiryMonth" name="expiryMonth" placeholder="MM" required/>
+                        <input type="text" id="expiryYear" name="expiryYear" placeholder="YYYY" required/>
+                    </div>
+                </div>
+                <div class="cvvMobile">
+                    <label for="cvv">CVV / CVC</label>
+                    <input type="password" id="cvv" name="cvv" placeholder="xxx" inputmode="numeric" pattern="\d{3,4}" required/>
+                </div>
+            </div>
+
+            <h2>Shipping Information</h2>
+            
+            <label for="fullName">Full Name *</label>
+            <input type="text" id="fullName" name="fullName" required />
+
+            <label for="email">Email *</label>
+            <input type="email" id="email" name="email" required />
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone"/>
+
+            <label for="address">Shipping Address *</label>
+            <input type="text" id="address" name="address" required />
+
+            <label for="city">City *</label>
+            <input type="text" id="city" name="city" required />
+
+            <label for="state">State / Province</label>
+            <input type="text" id="state" name="state"/>
+
+            <label for="zip">ZIP / Postal Code *</label>
+            <input type="text" id="zip" name="zip" required />
+
+            <label for="country">Country *</label>
+            <input type="text" id="country" name="country" required />
+        </form>
+    </div>
+
           <div class="cartBottomInfo">
             <div>
               <div class="cartConfirmationLocation">

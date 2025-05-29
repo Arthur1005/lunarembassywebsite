@@ -2022,58 +2022,27 @@ text-align: center;
         transition: 0.5s; 
     }
 
-
-
-
-
-
-
     /* Confirmation */
 
     .paymentPage {
         display: none;
     }
 
-    /* mobile payment detail */
-    .paymentPageMobile {
-        font-family: 'Akira Expanded';
-        z-index: 4000;
-        max-width: 100vw;
-        margin-top: 50%;
-    }
 
-    #yourItem {
-        display: block;
-        max-width: 100px;
-    }
-
-
-    .paymentPageMobile > * {
+    .paymentPage > * {
         display: flex;
         flex-direction: column;
-        margin: 20px 40px;
-    }
-
-    .paymentFormMobile {
-        display: flex;
-        flex-direction: column;
-        gap: 20px;
-        padding-top: 20px;
-        padding-bottom: 60px;
-    }
-
-    .paymentFormMobile > * {
-        margin: 0px 0px;
+        margin: 60px 60px;
     }
     
-    .paymentTopMobile {
+    .paymentTop {
         margin-top: 20px;
     }
 
-    .paymentReturnMobile {
-        position: fixed;
-        top: 40px;
-        right: 40px;
+    .paymentReturn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
         font-size: 16px;
         color: black;
         z-index: 3000;
@@ -2082,81 +2051,77 @@ text-align: center;
         text-underline-offset: 4px;
     }
 
-    .paymentTopMobile h1 {
+    .paymentTop h1 {
         margin-top: 40px;
-        font-size: 12px;
-        color: white;
+        font-size: 40px;
     }
 
-    .paymentPageMobile h2 {
-        margin: 30px 0px;
-        font-size: 12px;
-        color: white;
+    .paymentPage h2 {
+        margin: 30px 40px;
     }
 
-    
+    .paymentForm {
+        display: flex;
+        flex-direction: column;
+        border: 2px solid white;
+        border-radius: 20px;
+        gap: 20px;
+        padding-top: 20px;
+        padding-bottom: 60px;
+    }
 
-    .expAndCvvMobile {
+    .paymentForm > * {
+        margin: 0px 40px;
+    }
+
+    .expAndCvv {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
     }
 
-    .expiryMobile, .cvvMobile {
-        max-width: 100%;
+    .expiry, .cvv {
         display: flex;
         flex-direction: column;
     }
 
-    .expiryMonthandYearMobile {
-        max-width: 20px;
+    .expiryMonthandYear {
         display: flex;
         flex: row;
-        gap: 10px;
+        gap: 20px;
     }
 
-    .expiryMobile input {
+    .expiry input {
         max-width: 100px;
         margin-top: 20px;
     }
 
-    .cvvMobile input {
+    .cvv input {
         max-width: 200px;
         margin-top: 20px;
     }
 
-    .paymentFormMobile input{
+    .paymentForm input{
         height: 40px;
         font-family: 'Akira Expanded';
-        font-size: 8px;
+        font-size: 12px;
         color: white;
         border: 1px solid white;
         background: transparent;
         border-radius: 0px;  
         text-align: center;
-        margin: unset;
-    }
-
-    .paymentFormMobile label{
-        font-size: 10px;
-        color: white;
-        margin: unset;
     }
     
-    .paymentFormMobile::placeholder {
+    .paymentForm::placeholder {
         color: white;
         justify-content: left;
         text-align: center;
         caret-color: black;
     } 
 
-
-
-    
-
     .sideConfirm {
         min-width: 100vw;
-        min-height: 100vw;
+        min-height: 100%;
         background-color: white;
         border-radius: 20px 0 0 0;
         display: flex;
@@ -2454,11 +2419,6 @@ text-align: center;
 }
 
 
-.cartContent {
-    justify-self: baseline;
-}
-
-
 
     .cartBottom {
         margin-top: auto;
@@ -2516,7 +2476,7 @@ text-align: center;
     .cartCheckout {
         justify-self: flex-end;
         background-color: #FF8228;
-        min-width: 100vw;
+        width: 100vw;
         border: none;
         border-radius: 20px 0 0 0;
         color: white;
@@ -2528,7 +2488,6 @@ text-align: center;
     }
 
     .cartCheckoutWord {
-        font-size: 10px;
         display: flex;
         flex-direction: row;
         justify-content: space-around;
@@ -2538,19 +2497,4 @@ text-align: center;
     .cartCheckout:focus {
         color: black;
     }
-
-
-
-
-
-
-    
 }
-
-.only-show-on-second {
-    display: none;
-  }
-
-  .paymentPageMobile {
-    display: none;
-  }
