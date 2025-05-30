@@ -135,21 +135,23 @@ window.addEventListener("DOMContentLoaded", () => {
     el.style.marginTop = "16px";
   });
 
-  const tryBtns = document.querySelectorAll(".paymentPageMobile");
+  const tryBtns = document.querySelector(".tryshow");
   const Btn1 = document.getElementById("Btn1");
   const cartBottomInfo = document.querySelector(".cartBottomInfo");
+  cartBottomInfo.style.borderRadius = "0 0 0 0"; // to be changed
 
 
   function showform() {
-      tryBtns.forEach(el => {
-        el.style.display = "flex";
-      });
-
-
-      cartBottomInfo.style.display = "ok"; // to be changed
+      cartBottomInfo.style.visibility = "hidden"; // to be changed
+      tryBtns.style.display = "block"; // to be changed
+  };
+  function hiddenform() {
+      cartBottomInfo.style.visibility = "visible"; // to be changed
+      tryBtns.style.display = "none"; // to be changed
   };
 
-  if (Btn1) Btn1.addEventListener("click", showform);
+  if (Btn1) Btn1.addEventListener("click", hiddenform);
+  if (Btn2) Btn2.addEventListener("click", showform);
   
 
 });
