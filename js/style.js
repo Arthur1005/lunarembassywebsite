@@ -25,11 +25,30 @@ const addOnPrices = {
 
 
 function toggleMobileSearch() {
-  const mobileSearchBG = document.getElementById('mobileSearchSectionBG');
-  if (mobileSearchBG) {
-    mobileSearchBG.classList.toggle('active');
+    const dropdown = document.getElementById('mobileSearchSectionBG');
+    const searchIcon = document.getElementById('searchIcon');
+    const cartIcon = document.getElementById('cartIcon');
+    const mobileLogo = document.getElementById('mobileLogo');
+    const mobileLogoPng = document.getElementById('mobileLogoPng');
+    const hamburgerIcon = document.getElementById('hamburger');
+    const searchDropped = dropdown.classList.contains('active');
+
+    dropdown.classList.toggle('active');
+
+    if (searchDropped) {
+        searchIcon.classList.remove('invert');
+        cartIcon.classList.remove('invert');
+        mobileLogo.classList.remove('invert');
+        mobileLogoPng.classList.remove('invert');
+        hamburgerIcon.classList.remove('invert');
+    } else {
+        searchIcon.classList.add('invert');
+        cartIcon.classList.add('invert');
+        mobileLogo.classList.add('invert');
+        mobileLogoPng.classList.add('invert');
+        hamburgerIcon.classList.add('invert');
+    }
   }
-}
 
 
 
@@ -430,8 +449,7 @@ document.getElementById("searchBox").addEventListener("keydown", function (e) {
   }
 });
 
-
-document.getElementById("searchBox").addEventListener("keydown", function (e) {
+document.getElementById("mobileSearchInput").addEventListener("keydown", function (e) {
   if (e.key === "Enter") {
     const query = this.value.trim();
     if (query) {

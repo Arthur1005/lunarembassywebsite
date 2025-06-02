@@ -43,6 +43,10 @@ body {
     overflow-x: hidden;
 }
 
+main {
+    z-index: -2;
+}
+
 header {
     flex: 1;
 }
@@ -267,25 +271,25 @@ text-align: center;
         width: 100%;
         margin: 100px auto;
         border-radius: 20px;
-        height: 50px;
+        height: 33px;
     }
 
     #mobileSearchInput { /* search bar */
         border-style: solid;
         border-radius: 20px;
         border-color: black;
-        display: flex;
-        padding: 5px;
+        padding: 5px 0;
         margin: 2px;
         margin-right: 20px;
         width: 100%;
-        height: 50px;
+        height: 30px;
         justify-content: left;
 
         font-family: 'Akira Expanded';
         text-transform: uppercase;
         text-align: center;
         caret-color: black;
+        z-index: 100000;
     }
 
     input:focus {
@@ -359,6 +363,7 @@ text-align: center;
         top: 0;
         right: 0;
         overflow-x: hidden;
+        overflow: hidden;
 
         transform: translateX(100%); 
         transition: transform 0.8s ease;
@@ -367,6 +372,7 @@ text-align: center;
     .sideCart.active {
         transform: translateX(0);
         z-index: 2000;
+          overflow: hidden;
     }
 
     .sideCart {
@@ -460,7 +466,6 @@ text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: 40px;
     }
 
     .itemImg {
@@ -519,6 +524,7 @@ text-align: center;
         margin-top: auto;
         position: relative;
         margin-bottom: 0;
+        margin-top: 30px;
     }
 
     .cartBottomInfo {
@@ -2186,6 +2192,48 @@ text-align: center;
 
 
 
+    /* search result */
+    #searchSuccess {
+        min-height: 400px;
+    }
+
+    .result {
+        margin-left: 30px;
+        margin-right: 40px;
+        margin-bottom: 40px;
+    }
+
+    #searchResults {
+        font-size: 20px;
+        margin: 30px 30px 60px 30px;
+        align-self: unset;
+        justify-self: unset;
+        position: relative;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+
+    }
+
+    .EachResultContainer {
+        padding:  20px 5px;
+        border: solid 1px white;
+        border-radius: 20px;
+        background-color: white;
+        color: black;
+        margin: 10px 0;
+    }
+
+    .EachResultContainer > p {
+        font-size: 12px;
+    }
+
+    .EachResultContainer > h1 {
+       margin-bottom: 10px;
+       font-size: clamp(12px, 1rem, 40px);
+    }
+
+
+
     /* mobile indivi*/
     *, *::before, *::after {
       box-sizing: border-box;
@@ -2341,6 +2389,8 @@ text-align: center;
         transition: transform 0.5s ease, opacity 0.5s ease;
         opacity: 0;
         width: 100%;
+
+        justify-self: end;
     }
 
     .cartItemSlide.active {
@@ -2424,18 +2474,17 @@ text-align: center;
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin-bottom: unset;
     }
 
     .itemImg {
-        max-height: 40vh;
-        max-width: 60vw;
+        max-height: clamp(24vh, 1vw, 50vh);
+        max-width: clamp(24vh, 1vw, 32vh);
         height: auto;
         display: block;
     }
 
     .itemLabel {
-        font-size: 18px;
+        font-size: 12px;
         font-weight: 900;
         margin-top: 10px;
         letter-spacing: 1px;
@@ -2479,21 +2528,23 @@ text-align: center;
 
 
 .cartContent {
-    justify-self: baseline;
+    position: relative;
 }
 
 
 
     .cartBottom {
+        margin-top: 20px;
         margin-bottom: 0px;
         position: relative;
+
     }
 
     .cartBottomInfo {
         background-color: black;
         border-radius: 20px 0 0 0;
         color: white;
-        padding-bottom: 60px;
+        margin-bottom: 10px;
         z-index: 8000;
     }
 
@@ -2583,6 +2634,7 @@ text-align: center;
   text-align: center;
   box-sizing: border-box;
   overflow: hidden;
+  margin-top: unset;
 }
 
 
@@ -2609,14 +2661,6 @@ text-align: center;
     width: 49%;
     background-color: white;
   }
-
-
-
-
-
-
-
-
 
 
     .tryshow {
@@ -2685,8 +2729,14 @@ text-align: center;
         margin: unset;
     }
 
+    .only-show-on-second {
+    display: flex;
+    gap: 8px;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 16px;
+  }
 
-    
 }
 
 .only-show-on-second {
@@ -2697,4 +2747,10 @@ text-align: center;
     display: none;
   }
 
-  
+  .hidden-cart-buttons .only-show-on-second {
+    display: none;
+  }
+
+  .tryshow {
+    display: none;
+  }

@@ -65,7 +65,6 @@ window.addEventListener('DOMContentLoaded', () => {
     const cartBottom = document.getElementById('cartBottom');
     const cartItemsDiv = document.getElementById('cartItems');
     const emptyMessage = document.getElementById('emptyMessage');
-
     if (cartBottom) cartBottom.style.display = 'block';
     if (cartItemsDiv) cartItemsDiv.style.display = 'block';
     if (emptyMessage) emptyMessage.style.display = 'none';
@@ -149,6 +148,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
 
+  if (window.innerWidth <= 768) {
   const specialBtns = document.querySelectorAll(".only-show-on-second");
   specialBtns.forEach(el => {
     el.style.display = "flex";
@@ -157,6 +157,8 @@ window.addEventListener("DOMContentLoaded", () => {
     el.style.justifyContent = "center";
     el.style.marginTop = "16px";
   });
+}
+
 
   const tryBtns = document.querySelector(".tryshow");
   const Btn1 = document.getElementById("Btn1");
