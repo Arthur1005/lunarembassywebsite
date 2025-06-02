@@ -150,13 +150,6 @@ function addToCart(itemHTML, itemPrice, save = true) {
   updateCheckoutPrice();
   updateCartCount();
 
-  const sideCart = document.getElementById("sideCart");
- if (save) {
-  const sideCart = document.getElementById("sideCart");
-  if (sideCart && !sideCart.classList.contains("active")) {
-    sideCart.classList.add("active");
-  }
-}
 
 
   if (save) {
@@ -193,6 +186,10 @@ window.addEventListener('DOMContentLoaded', () => {
 
     store.html.forEach((html, i) => {
       addToCart(html, store.prices[i], false);
+
+    currentItemIndex = 0;
+    showCartItem(currentItemIndex);
+
     });
   } else {
     if (clearBtn) clearBtn.style.display = 'none';
@@ -279,16 +276,12 @@ window.addEventListener('DOMContentLoaded', () => {
           </div>
         </div>
 
-        <a href="#" class="paymentReturnMobile" id="paymentReturnBtnMobile">return</a>
-            
-
         <div class="cartBottom">
           <div class="hidden-cart-buttons only-show-on-second">
             <button id="Btn1">Item Info</button>
             <button id="Btn2">Payment Detail</button>
           </div>
 
-    
           <div class="cartBottomInfo">
               <div class="cartConfirmationLocation">
                 <div class="cartConfirmationInfo location">
@@ -374,10 +367,6 @@ window.addEventListener('DOMContentLoaded', () => {
                 <input type="text" id="country" name="country" required />
               </form>
           </div>
-
-
-
-
             </div>
           </div>
         </div>
