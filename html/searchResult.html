@@ -14,10 +14,11 @@
             </a>
             <nav class="nav">
                 <div class="navGroup">
-                    
+                    <a class="navItem" href="../html/productList.html">Product</a>
+                    <a class="navItem" href="../html/about.html">About</a>
                     <div class="navItem searchContainer">
                         <span class="searchLabel">Search</span>
-                        <input type="text" class="searchInput" placeholder=". . . moon" />
+                        <input type="text" id="searchBox" class="searchInput" placeholder=". . . moon" />
                     </div>
                     <a class="navItem" id="cart" href="#">Cart</a>
                 </div>
@@ -46,7 +47,7 @@
 
         <div class="mobileSearchSectionBG" id="mobileSearchSectionBG">
             <div class="mobileSearchSection">
-                <input type="text" id="searchBox" class="searchInput" placeholder=". . . moon"/>
+                <input type="text" name="search" size="20" maxlength="40" autocomplete="off" id="mobileSearchInput" placeholder=". . . moon">
                 <button type="submit" id="mobileSearchBtn">Search</button>
             </div>
         </div>
@@ -81,6 +82,7 @@
             <div id="cartBottom" class="cartBottom" style="display: none;">
             
             </div>
+            
 
             <button class="cartCheckout" id="checkoutBtn" onclick="goToPaymentPage()">
             <div class="cartCheckoutWord">
@@ -168,12 +170,4 @@
 
       } else {
         resultsContainer.innerHTML = `
-        <h1 id="searchResults">No results found for " ${query} "</h1>`;
-      }
-    });
-  </script>
-</body>
-</html>
-
-
-
+        <h1 id="searchResults">No results found for " ${query

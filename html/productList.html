@@ -14,16 +14,18 @@
             </a>
             <nav class="nav">
                 <div class="navGroup">
-                    <a class="navItem" href="../html/home.html">Product</a>
+                    <a class="navItem" href="../html/productList.html">Product</a>
                     <a class="navItem" href="../html/about.html">About</a>
                     <div class="navItem searchContainer">
                         <span class="searchLabel">Search</span>
-                        <input type="text" class="searchInput" placeholder=". . . moon" />
+                        <input type="text" id="searchBox" class="searchInput" placeholder=". . . moon" />
                     </div>
-                    <a class="navItem" href="../html/cart.html">Cart</a>
+                    <a class="navItem" id="cart" href="#">Cart</a>
                 </div>
             </nav>
         </div>
+
+        <span id="cartCount"></span>
         
         <!-- mobile navigation -->
         <div class="sideNavHeaderContent">
@@ -31,7 +33,7 @@
                 <button class="hamburger" id="hamburger"><img src="../assets/img/side_nav_ham_w.png" alt=""></button>
             </div>
             <div class="mobileNavLogo">
-                <a href="../html/home.html"  id="mobileLogo"><img src="../assets/img/logo_w.png" alt="logo" id="mobileLogoPng"></a>
+                <a href="../html/home.html" id="mobileLogo"><img src="../assets/img/logo_w.png" alt="logo" id="mobileLogoPng"></a>
             </div>
             <div class="mobileNavIcon">
                 <button onclick="toggleMobileSearch">
@@ -45,7 +47,7 @@
 
         <div class="mobileSearchSectionBG" id="mobileSearchSectionBG">
             <div class="mobileSearchSection">
-                <input type="text" name="search" size="20" maxlength="40" autocomplete="off" id="mobileSearchInput">
+                <input type="text" name="search" size="20" maxlength="40" autocomplete="off" id="mobileSearchInput" placeholder=". . . moon">
                 <button type="submit" id="mobileSearchBtn">Search</button>
             </div>
         </div>
@@ -95,14 +97,42 @@
             </div>
         </section>
     </main>
-
-
-
     <aside class="sideNav" id="sideNav">
         <a href="#" class="close" id="sideNavCloseBtn">Close</a>
         <a href="home.html" class="sideNavLink">Home</a>
         <a href="productList.html" class="sideNavLink">Product</a>
         <a href="about.html" class="sideNavLink">About</a>
+    </aside>
+    <aside class="sideCart" id="sideCart">
+        <div class="cartTop">
+            <h1>cart</h1>
+            <p><a href="#" class="close" id="sideCartCloseBtn">Close</a></p>
+        </div>
+        <div><button id="clearCartBtn">Clear Cart</button></div>
+
+        <div id="cartContent" class="cartContent">
+            <p id="emptyMessage" class="emptyMessage">Your cart is empty.</p>
+
+
+            <div id="cartItems" class="cartItem" style="display: none;">
+            <!-- Items get inserted here -->
+            </div>
+
+            <div id="cartBottom" class="cartBottom" style="display: none;">
+            
+            </div>
+            
+
+            <button class="cartCheckout" id="checkoutBtn" onclick="goToPaymentPage()">
+            <div class="cartCheckoutWord">
+                <h1>Checkout</h1>
+                <h1>&#8226;</h1>
+                <h1 id="finalTotalPrice">$0.00</h1>
+            </div>    
+            </button>
+
+        </div>
+        </div>
     </aside>
     <footer>
         <div class="footerTop">

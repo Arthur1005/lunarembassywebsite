@@ -449,15 +449,29 @@ document.getElementById("searchBox").addEventListener("keydown", function (e) {
   }
 });
 
-document.getElementById("mobileSearchInput").addEventListener("keydown", function (e) {
+
+const mobileSearchInput = document.getElementById("mobileSearchInput");
+const mobileSearchBtn = document.getElementById("mobileSearchBtn");
+
+function performSearch() {
+  const query = mobileSearchInput.value.trim();
+  if (query) {
+    window.location.href = `searchResult.html?q=${encodeURIComponent(query)}`;
+  }
+}
+
+mobileSearchInput.addEventListener("keydown", function (e) {
   if (e.key === "Enter") {
-    const query = this.value.trim();
-    if (query) {
-      window.location.href = `searchResult.html?q=${encodeURIComponent(query)}`;
-    }
+    performSearch();
   }
 });
 
+mobileSearchBtn.addEventListener("click", performSearch);
 
 
+
+
+document.getElementById("sloganButton").addEventListener("click", function () {
+  location.href = "../html/moon.html";
+});
 

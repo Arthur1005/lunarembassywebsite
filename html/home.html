@@ -19,12 +19,14 @@
                     <a class="navItem" href="../html/about.html">About</a>
                     <div class="navItem searchContainer">
                         <span class="searchLabel">Search</span>
-                        <input type="text" class="searchInput" placeholder=". . . moon" />
+                        <input type="text" id="searchBox" class="searchInput" placeholder=". . . moon" />
                     </div>
                     <a class="navItem" id="cart" href="#">Cart</a>
                 </div>
             </nav>
         </div>
+
+        <span id="cartCount"></span>
 
         <!-- mobile navigation -->
         <div class="sideNavHeaderContent">
@@ -46,7 +48,7 @@
 
         <div class="mobileSearchSectionBG" id="mobileSearchSectionBG">
             <div class="mobileSearchSection">
-                <input type="text" name="search" size="20" maxlength="40" autocomplete="off" id="mobileSearchInput">
+                <input type="text" name="search" size="20" maxlength="40" autocomplete="off" id="mobileSearchInput" placeholder=". . . moon">
                 <button type="submit" id="mobileSearchBtn">Search</button>
             </div>
         </div>
@@ -55,9 +57,9 @@
         <section class="homePageTop">
             <div class="homePageTopHeroImg">
                 <h1>buy land on the moon !</h1>
-                <img src="../assets/img/moon.png" alt="">
+                <img src="../assets/img/moon.png" alt=""> 
                 <h2 id="slogan">look up and say,<br> "I own that."</h2>
-                <button id="sloganButton" onclick="location.href='../html/indiviProduct.html'">Show me !</button>
+                <button id="sloganButton" onclick="location.href='../html/moon.html'">Show me !</button>
             </div>
             <hr id="mobileLine">
             <div class="homePageTopIntro">
@@ -84,13 +86,13 @@
                     </button>
                 </div>
                 <div>
-                    <button>
+                    <button onclick="location.href='../html/mercury.html'">
                         <img src="../assets/img/mercury.png" alt="">
                         <p>mercury</p>
                     </button>
                 </div>
                 <div>
-                    <button>
+                    <button onclick="location.href='../html/pluto.html'">
                         <img src="../assets/img/pluto.png" alt="">
                         <p>pluto</p>
                     </button>
@@ -99,12 +101,6 @@
             <button onclick="location.href='../html/productList.html'">view all product</button>
         </section>
     </main>
-    <aside class="sideNav" id="sideNav">
-        <a href="#" class="close" id="sideNavCloseBtn">Close</a>
-        <a href="home.html" class="sideNavLink">Home</a>
-        <a href="productList.html" class="sideNavLink">Product</a>
-        <a href="about.html" class="sideNavLink">About</a>
-    </aside>
     <aside class="sideNav" id="sideNav">
         <a href="#" class="close" id="sideNavCloseBtn">Close</a>
         <a href="home.html" class="sideNavLink">Home</a>
@@ -129,6 +125,7 @@
             <div id="cartBottom" class="cartBottom" style="display: none;">
             
             </div>
+            
 
             <button class="cartCheckout" id="checkoutBtn" onclick="goToPaymentPage()">
             <div class="cartCheckoutWord">

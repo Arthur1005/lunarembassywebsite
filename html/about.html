@@ -18,12 +18,14 @@
                     <a class="navItem" href="../html/about.html">About</a>
                     <div class="navItem searchContainer">
                         <span class="searchLabel">Search</span>
-                        <input type="text" class="searchInput" placeholder=". . . moon" />
+                        <input type="text" id="searchBox" class="searchInput" placeholder=". . . moon" />
                     </div>
-                    <a class="navItem" href="../html/cart.html">Cart</a>
+                    <a class="navItem" id="cart" href="#">Cart</a>
                 </div>
             </nav>
         </div>
+
+        <span id="cartCount"></span>
 
         <!-- mobile navigation -->
         <div class="sideNavHeaderContent">
@@ -45,7 +47,7 @@
 
         <div class="mobileSearchSectionBG" id="mobileSearchSectionBG">
             <div class="mobileSearchSection">
-                <input type="text" name="search" size="20" maxlength="40" autocomplete="off" id="mobileSearchInput">
+                <input type="text" name="search" size="20" maxlength="40" autocomplete="off" id="mobileSearchInput" placeholder=". . . moon">
                 <button type="submit" id="mobileSearchBtn">Search</button>
             </div>
         </div>
@@ -72,6 +74,37 @@
         <a href="productList.html" class="sideNavLink">Product</a>
         <a href="about.html" class="sideNavLink">About</a>
     </aside>
+    <aside class="sideCart" id="sideCart">
+        <div class="cartTop">
+            <h1>cart</h1>
+            <p><a href="#" class="close" id="sideCartCloseBtn">Close</a></p>
+        </div>
+        <div><button id="clearCartBtn">Clear Cart</button></div>
+
+        <div id="cartContent" class="cartContent">
+            <p id="emptyMessage" class="emptyMessage">Your cart is empty.</p>
+
+
+            <div id="cartItems" class="cartItem" style="display: none;">
+            <!-- Items get inserted here -->
+            </div>
+
+            <div id="cartBottom" class="cartBottom" style="display: none;">
+            
+            </div>
+            
+
+            <button class="cartCheckout" id="checkoutBtn" onclick="goToPaymentPage()">
+            <div class="cartCheckoutWord">
+                <h1>Checkout</h1>
+                <h1>&#8226;</h1>
+                <h1 id="finalTotalPrice">$0.00</h1>
+            </div>    
+            </button>
+
+        </div>
+        </div>
+    </aside>
     <footer>
         <div class="footerTop">
             <div  class="footerLeft">
@@ -84,33 +117,4 @@
                 </div>
                 <div>
                     <p>quick links</p>
-                    <a href="">Buy now</a>
-                    <a href="">Terms</a>
-                    <a href="">Privacy</a>
-                    <a href="">Contact Us</a>
-                </div>
-                <div>
-                    <p>social</p>
-                    <a href="">Instagram</a>
-                    <a href="">Facebook</a>
-                    <a href="">Youtube</a>
-                    <a href="">X Twitter</a>
-                </div>
-            </div>
-            <div class="footerRight">
-                <form action="" class="footerRightContent">
-                    <label for="">newsletter</label>
-                    <input type="text" placeholder="enter your email address">
-                    <button type="submit" id="footerSubmitBtn">subscribe</button>
-                </form>
-            </div>
-        </div>
-        <hr id="footerLine">
-        <div class="footerBottom">
-            <p id="footerStatement">&#169; 2025 Lunar embassy. all right reserved.</p>
-        </div>
-    </footer>
-
-    <script src="../js/style.js"></script>
-</body>
-</html>
+                    <a href="">
