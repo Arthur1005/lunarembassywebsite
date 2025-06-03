@@ -122,7 +122,7 @@ window.addEventListener('DOMContentLoaded', () => {
     if (checkoutForm.checkValidity()) {
       submitBtn.disabled = false;
     } else {
-      submitBtn.disabled = true;
+      submitBtn.disabled = false;
     }
   }
 
