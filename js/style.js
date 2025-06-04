@@ -136,6 +136,41 @@ function showPrevItem() {
   }
 }
 
+
+function showCartNotification() {
+  const notif = document.createElement("div");
+  notif.style.fontFamily = "Akira Expanded";
+  notif.textContent = "Item Added to cart !";
+  notif.style.position = "fixed";
+  notif.style.bottom = "-200px";
+  notif.style.left = "50%";
+  notif.style.transform = "translateX(-50%)";
+  notif.style.backgroundColor = "white";
+  notif.style.color = "black";
+  notif.style.padding = "12px 20px";
+  notif.style.borderRadius = "8px";
+  notif.style.fontSize = "clamp(10px, 3vw, 14px)";
+  notif.style.minWidth = "230px";
+  notif.style.transition = "bottom 0.5s ease";
+  notif.style.zIndex = "9999";
+  notif.style.border = "2px solid black"
+
+  document.body.appendChild(notif);
+
+  requestAnimationFrame(() => {
+    notif.style.bottom = "60px";
+  });
+
+  setTimeout(() => {
+    notif.style.bottom = "-200px";
+    notif.addEventListener("transitionend", () => {
+      notif.remove();
+    });
+  }, 2500);
+}
+
+
+
 function addToCart(itemHTML, itemPrice, save = true) {
 
   const container = document.createElement("div");
@@ -168,6 +203,8 @@ function addToCart(itemHTML, itemPrice, save = true) {
 
   updateCheckoutPrice();
   updateCartCount();
+  
+  showCartNotification();
 
 
 
@@ -257,6 +294,10 @@ window.addEventListener('DOMContentLoaded', () => {
     };
   }
 
+  if (sessionStorage.getItem('cartJustAdded') === 'false') {
+    sessionStorage.removeItem('cartJustAdded');
+  }
+
   const searchIcon = document.getElementById("searchIcon");
   if (searchIcon) {
     searchIcon.onclick = toggleMobileSearch;
@@ -343,19 +384,19 @@ window.addEventListener('DOMContentLoaded', () => {
                 <input type="text" id="cardName" name="cardName" required />
 
                 <label for="cardNumber">Card Number </label>
-                <input type="text" id="cardNumber" name="cardNumber" inputmode="numeric" pattern="[0-9\s]{13,19}" required />
+                <input type="text" id="cardNumber" name="cardNumber" inputmode="numeric" pattern="[0-9\s]{13,19}" maxlength="16" required />
 
                 <div class="expAndCvvMobile">
                     <div class="expiryMobile">
                         <label for="expiry">Expiry Date</label>
                         <div class="expiryMonthandYearMobile">
-                            <input type="text" id="expiryMonth" name="expiryMonth" placeholder="MM" required/>
-                            <input type="text" id="expiryYear" name="expiryYear" placeholder="YYYY" required/>
+                            <input type="text" id="expiryMonth" name="expiryMonth" placeholder="MM" maxlength="2" pattern="(0[1-9]|1[0-2])" inputmode="numeric" required/>
+                            <input type="text" id="expiryYear" name="expiryYear" placeholder="YYYY" maxlength="4" pattern="\d{2}" inputmode="numeric" required />
                         </div>
                     </div>
                     <div class="cvvMobile">
                         <label for="cvv">CVV / CVC</label>
-                        <input type="password" id="cvv" name="cvv" placeholder="xxx" inputmode="numeric" pattern="\d{3,4}" required/>
+                        <input type="password" id="cvv" name="cvv" placeholder="xxx" maxlength="3" inputmode="numeric" pattern="[0-9]*" required/>
                     </div>
                 </div>
 
