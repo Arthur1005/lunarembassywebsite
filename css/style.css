@@ -44,7 +44,7 @@ body {
 }
 
 main {
-    z-index: -2;
+    z-index: 0;
 }
 
 header {
@@ -177,7 +177,6 @@ text-align: center;
         max-width: 994px;
         margin: 36px auto auto 10px;
         padding: 0 20px;
- 
     }
 
     .sideNavHeaderContent > * {
@@ -227,7 +226,7 @@ text-align: center;
     }
 
     .mobileNavIcon { /* the icons container */
-        z-index: 1;
+        z-index: 2;
         display: flex;
         column-gap: 16px;
         color: white;
@@ -258,11 +257,12 @@ text-align: center;
   transform: translateY(-100%);
   transition: transform 0.8s ease;
   overflow: hidden;
-  z-index: 0; /* Enough to be clickable, but under other overlays */
+  z-index: 1; /* Enough to be clickable, but under other overlays */
 }
 
     .mobileSearchSectionBG.active {
         transform: translateY(0);
+        z-index: 1;
     }
 
     .mobileSearchSection { /* the content */
@@ -1488,7 +1488,7 @@ text-align: center;
 
     .mobileSearchSection {
         display: flex;
-        z-index: 10000 !important;
+        z-index: 0;
     }
 
     .mobileSearchSectionBG {
