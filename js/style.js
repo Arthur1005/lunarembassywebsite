@@ -204,11 +204,12 @@ function addToCart(itemHTML, itemPrice, save = true) {
   updateCheckoutPrice();
   updateCartCount();
   
-  showCartNotification();
+
 
 
 
   if (save) {
+      showCartNotification();
     const store = loadCartStore();
     store.html.push(itemHTML);
     store.prices.push(itemPrice);
@@ -294,10 +295,6 @@ window.addEventListener('DOMContentLoaded', () => {
     };
   }
 
-  if (sessionStorage.getItem('cartJustAdded') === 'false') {
-    sessionStorage.removeItem('cartJustAdded');
-  }
-
   const searchIcon = document.getElementById("searchIcon");
   if (searchIcon) {
     searchIcon.onclick = toggleMobileSearch;
@@ -349,8 +346,10 @@ window.addEventListener('DOMContentLoaded', () => {
                   <p>$${locationPrice.toFixed(2)}</p>
                 </div>
                 <div id="mapLink">
-                  <a href="https://${location.toLowerCase().replace(/\s+/g, "")}.nasa.gov" target="_blank">where is that?</a>
+                  <a href="https://moon.nasa.gov/observe-the-moon-night/resources/moon-map/#1759536000000::0::" target="_blank">where is that?</a>
                 </div>
+
+                
               </div>
 
               <div class="cartConfirmationInfo">
@@ -489,6 +488,15 @@ document.getElementById("searchBox").addEventListener("keydown", function (e) {
     }
   }
 });
+
+
+document.querySelector('.readMoreButton').addEventListener('click', () => {
+  document.querySelector('.indiviPageMiddle').scrollIntoView({
+    behavior: 'smooth',
+    block: 'start'
+  });
+});
+
 
 
 const mobileSearchInput = document.getElementById("mobileSearchInput");

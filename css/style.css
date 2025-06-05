@@ -819,6 +819,7 @@ text-align: center;
 
     .homePageTop h1 {
         font-size: 80px;
+        max-width: 800px;
     }
 
     .homePageTop h3 {
@@ -857,7 +858,7 @@ text-align: center;
     
 
     #slogan {
-        margin-top: 260px;
+        margin-top: 340px;
     }
 
     #sloganButton {
@@ -1117,7 +1118,7 @@ text-align: center;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin: 300px 40px 60px 0px;
+            margin: 400px 40px 60px 0px;
             gap: 40px;
         }
 
@@ -1257,15 +1258,19 @@ text-align: center;
             transition: 0.5s;
         }
 
-
-
-
-
-
+        .lineBetweenMiddleAndBottom {
+        display: block;
+        width: 50%;
+        color: white;
+        position: center center;
+        margin: 50px auto;
+        border: 2px solid white;
+        border-radius: 20px;
+    }
 
 
     .indiviPageBottom {
-        margin-top: 100px;
+        margin-top: 0px;
     }
 
     .indiviPageBottom img {
