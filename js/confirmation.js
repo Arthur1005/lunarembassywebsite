@@ -177,15 +177,11 @@ window.addEventListener('DOMContentLoaded', () => {
   updateDisplay();
   setupButtons();
 
-  // Select the button by its ID
 const homePageBtn = document.getElementById('homePageBtn');
 
-// Add a click event listener to the button
 homePageBtn.addEventListener('click', () => {
-  // When clicked, clear the cart data from localStorage
   localStorage.removeItem('cartStore');
-  // Then redirect the user to the homepage (root URL)
-  window.location.href = 'moon.html';
+  window.location.href = 'index.html';
 });
 
 
