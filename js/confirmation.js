@@ -181,7 +181,7 @@ const homePageBtn = document.getElementById('homePageBtn');
 
 homePageBtn.addEventListener('click', () => {
   localStorage.removeItem('cartStore');
-  window.location.href = 'home.html';
+  window.location.href = "home.html";
 });
 
 
