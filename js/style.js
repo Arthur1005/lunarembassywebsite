@@ -454,7 +454,7 @@ if (paymentDetailButton) {
 const backToHomePageButton = document.getElementById('homePageBtn');
 if (backToHomePageButton) {
   backToHomePageButton.addEventListener('click', () => {
-    window.location.href = 'index.html';
+    window.location.href = 'home.html';
   });
 }
 
