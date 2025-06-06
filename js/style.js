@@ -467,60 +467,62 @@ if (returnButton) {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-    const cartData = JSON.parse(localStorage.getItem("cartStore"));
+  const cartData = JSON.parse(localStorage.getItem("cartStore"));
 
-    if (cartData && cartData.cartItems && cartData.cartItems.length > 0) {
-        const currentItem = cartData.cartItems[0]; // or track an index if navigating multiple
+  if (cartData && cartData.cartItems && cartData.cartItems.length > 0) {
+    const currentItem = cartData.cartItems[0];
+    document.getElementById("confirmLocation").innerText = currentItem.location || "N/A";
+    document.getElementById("confirmArea").innerText = currentItem.area || "N/A";
+    document.getElementById("confirmName").innerText = currentItem.name || "N/A";
+    document.getElementById("confirmCode").innerText = currentItem.code || "N/A";
+  }
 
-        document.getElementById("confirmLocation").innerText = currentItem.location || "N/A";
-        document.getElementById("confirmArea").innerText = currentItem.area || "N/A";
-        document.getElementById("confirmName").innerText = currentItem.name || "N/A";
-        document.getElementById("confirmCode").innerText = currentItem.code || "N/A";
-    }
-});
+  const searchBox = document.getElementById("searchBox");
+  if (searchBox) {
+    searchBox.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        const query = this.value.trim();
+        if (query) {
+          window.location.href = `searchResult.html?q=${encodeURIComponent(query)}`;
+        }
+      }
+    });
+  }
 
+  const readMoreBtn = document.querySelector(".readMoreButton");
+  const scrollTarget = document.querySelector(".indiviPageMiddle");
+  if (readMoreBtn && scrollTarget) {
+    readMoreBtn.addEventListener("click", () => {
+      scrollTarget.scrollIntoView({ behavior: "smooth", block: "start" });
+    });
+  }
 
-document.getElementById("searchBox").addEventListener("keydown", function (e) {
-  if (e.key === "Enter") {
-    const query = this.value.trim();
+  const mobileSearchInput = document.getElementById("mobileSearchInput");
+  const mobileSearchBtn = document.getElementById("mobileSearchBtn");
+
+  function performSearch() {
+    const query = mobileSearchInput?.value.trim();
     if (query) {
       window.location.href = `searchResult.html?q=${encodeURIComponent(query)}`;
     }
   }
-});
 
-
-document.querySelector('.readMoreButton').addEventListener('click', () => {
-  document.querySelector('.indiviPageMiddle').scrollIntoView({
-    behavior: 'smooth',
-    block: 'start'
-  });
-});
-
-
-
-const mobileSearchInput = document.getElementById("mobileSearchInput");
-const mobileSearchBtn = document.getElementById("mobileSearchBtn");
-
-function performSearch() {
-  const query = mobileSearchInput.value.trim();
-  if (query) {
-    window.location.href = `searchResult.html?q=${encodeURIComponent(query)}`;
+  if (mobileSearchInput) {
+    mobileSearchInput.addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        performSearch();
+      }
+    });
   }
-}
 
-mobileSearchInput.addEventListener("keydown", function (e) {
-  if (e.key === "Enter") {
-    performSearch();
+  if (mobileSearchBtn) {
+    mobileSearchBtn.addEventListener("click", performSearch);
+  }
+
+  const sloganButton = document.getElementById("sloganButton");
+  if (sloganButton) {
+    sloganButton.addEventListener("click", function () {
+      location.href = "../html/moon.html";
+    });
   }
 });
-
-mobileSearchBtn.addEventListener("click", performSearch);
-
-
-
-
-document.getElementById("sloganButton").addEventListener("click", function () {
-  location.href = "../html/moon.html";
-});
-
